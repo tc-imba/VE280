@@ -348,3 +348,4 @@ dkms.conf
 *.tar
 *.zip
 *.rar
+!demo-code/*

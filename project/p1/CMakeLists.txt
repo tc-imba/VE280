@@ -1,10 +1,12 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
 project(p1)
 
-SET(SOURCE_FILES p1.cpp)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+SET(SOURCE_FILES answer/p1.cpp)
 
 add_executable(p1 ${SOURCE_FILES})
 
-SET(SOURCE_FILES tester.cpp)
+SET(SOURCE_FILES test/tester.cpp)
 
 add_executable(p1.test ${SOURCE_FILES})
