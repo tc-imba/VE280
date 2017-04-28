@@ -1,0 +1,40 @@
+Initial state
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+ho_e ____ fl_e ____ 
+____ ____ ____ ____ 
+Round 1
+Creature (hop east 2 0) takes action: hop
+Creature (flytrap east 2 2) takes action: left
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ho_e fl_n ____ 
+____ ____ ____ ____ 
+Round 2
+Creature (hop east 2 1) takes action: hop
+Creature (flytrap north 2 2) takes action: left
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ho_e fl_w ____ 
+____ ____ ____ ____ 
+Round 3
+Creature (hop east 2 1) takes action: hop
+Creature (flytrap west 2 2) takes action: infect
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ fl_e fl_w ____ 
+____ ____ ____ ____ 
+Round 4
+Creature (flytrap east 2 1) takes action: left
+Creature (flytrap west 2 2) takes action: left
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ fl_n fl_s ____ 
+____ ____ ____ ____ 
+Round 5
+Creature (flytrap north 2 1) takes action: left
+Creature (flytrap south 2 2) takes action: left
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ fl_w fl_e ____ 
+____ ____ ____ ____ 

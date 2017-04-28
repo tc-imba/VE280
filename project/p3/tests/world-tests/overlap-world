@@ -1,0 +1,7 @@
+4
+4
+flytrap east 0 0
+food west 1 1
+hop south 2 1
+food west 3 1
+flytrap east 1 1
