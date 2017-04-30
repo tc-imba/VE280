@@ -7,6 +7,3 @@ SET(SOURCE_FILES answer/p1.cpp)
 
 add_executable(p1 ${SOURCE_FILES})
 
-SET(SOURCE_FILES test/tester.cpp)
-
-add_executable(p1.test ${SOURCE_FILES})

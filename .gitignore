@@ -349,3 +349,15 @@ dkms.conf
 *.zip
 *.rar
 !demo-code/*
+### CMake template
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+
+!project/*/test-cases/MakeFile
