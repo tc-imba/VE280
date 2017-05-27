@@ -61,7 +61,7 @@ bld/
 
 # Visual Studio 2015 cache/options directory
 .vs/
-# Uncomment if you have tasks that create the project_2016's static files in wwwroot
+# Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
 # MSTest test Results
@@ -199,7 +199,7 @@ PublishScripts/
 !**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/packages/repositories.config
-# NuGet v3's project_2016.json files produces more ignorable files
+# NuGet v3's project.json files produces more ignorable files
 *.nuget.props
 *.nuget.targets
 
@@ -241,7 +241,7 @@ orleans.codegen.cs
 # RIA/Silverlight projects
 Generated_Code/
 
-# Backup & report files from converting an old project_2016 file
+# Backup & report files from converting an old project file
 # to a newer Visual Studio version. Backup files are not needed,
 # because we have git ;-)
 _UpgradeReport_Files/
@@ -360,4 +360,7 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 
-!project_2016/*/test-cases/MakeFile
+!project_2016/*/test-cases/Makefile
+test.temp
+
+Ve280-PADS-master
