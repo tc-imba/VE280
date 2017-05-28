@@ -19,7 +19,7 @@ bool fibonacci(unsigned int num) {
 }
 
 bool consecutive(unsigned int num) {
-    for (long n = static_cast<unsigned int>(sqrt(num)); n >= 0; n--) {
+    for (int n = sqrt(num); n >= 0; n--) {
         auto sum = n * n;
         if (sum == num)return true;
         for (auto m = n - 1; m >= 0; m--) {
@@ -34,11 +34,11 @@ bool consecutive(unsigned int num) {
 bool repeated(unsigned int num) {
     string str;
     while (num > 0) {
-        str.push_back(static_cast<char>(num % 10 + '0'));
+        str += num % 10 + '0';
         num /= 10;
     }
     if (str.length() < 2)return false;
-    for (int i = 1; i < str.length() / 2; i++) {
+    for (int i = 1; i <= str.length() / 2; i++) {
         if (str.length() % i > 0)continue;
         string repeat = str.substr(0, i);
         bool flag = true;
