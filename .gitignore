@@ -30,7 +30,7 @@
 
 # Executables
 *.exe
-*.out
+#*.out
 *.app
 ### VisualStudio template
 ## Ignore Visual Studio temporary files, build results, and

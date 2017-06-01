@@ -1,0 +1,23 @@
+Is treeSingle contained by treeB? No
+Is treeSingle contained by treeC? Yes
+Is treeB contained by treeSingle? No
+Is treeEmpty contained by treeSingle? Yes
+Is treeEmpty covered by treeEmpty? Yes
+treeC_Contain is 
+  /
+1
+  \
+      /
+    5
+      \
+
+Is treeC_Contain contained by treeC? Yes
+treeC_Not_Contain is 
+      /
+    6
+      \
+  /
+1
+  \
+
+Is treeC_Not_Contain contained by treeC? No

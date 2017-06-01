@@ -1,0 +1,10 @@
+Does treeA have a path sum 3? Yes
+Does treeA have a path sum 5? No
+Does treeC have a path sum 3? No
+Does treeC have a path sum 5? No
+Does treeC have a path sum 8? No
+Does treeC have a path sum 14? Yes
+Does treeSingle have a path sum 1? Yes
+Does treeSingle have a path sum 0? No
+Does treeEmpty have a path sum 3? No
+Does treeEmpty have a path sum 0? No

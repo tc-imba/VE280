@@ -1,0 +1,4 @@
+Insert listA at the 2nd position of listB gives ( 11 12 1 2 3 4 5 13 14 15 )
+Insert listA at the 0th position of listOne gives ( 1 2 3 4 5 11 )
+Insert listA at the 1st position of listOne gives ( 11 1 2 3 4 5 )
+Insert listA at the 0th position of listZero gives ( 1 2 3 4 5 )

@@ -1,0 +1,28 @@
+treeBCover is 
+      /
+    3
+      \
+  /
+2
+  \
+      /
+    4
+      \
+
+Is treeBCover covered by treeB? Yes
+treeCCover is 
+      /
+    1
+      \
+          /
+        5
+          \
+  /
+2
+  \
+
+Is treeCCover covered by treeC? Yes
+Is treeSingle covered by treeB? No
+Is treeEmpty covered by treeB? Yes
+Is treeB covered by treeEmpty? No
+Is treeEmpty covered by treeEmpty? Yes
