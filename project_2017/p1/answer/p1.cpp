@@ -183,17 +183,17 @@ bool divisor_2(unsigned int num)
 int main()
 {
     int choice, num;
+    bool flag;
     do
     {
-        cout << "Please enter the test choice: ";
+        cout << "Please enter the test choice: " << endl;
         cin >> choice;
     } while (choice <= 0 || choice > 4);
     do
     {
-        cout << "Please enter the number for test: ";
+        cout << "Please enter the number for test: " << endl;
         cin >> num;
     } while (num < 0 || num > 1e7);
-    bool flag;
     switch (choice)
     {
         case 1:

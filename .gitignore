@@ -361,6 +361,8 @@ compile_commands.json
 CTestTestfile.cmake
 
 !project_2016/*/test-cases/Makefile
+!project_2017/*/test-cases/Makefile
 test.temp
 
 Ve280-PADS-master
+cmake-build-debug
