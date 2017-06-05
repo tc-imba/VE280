@@ -5,6 +5,7 @@ enable_testing()
 
 add_subdirectory(project_2016/p1)
 add_subdirectory(project_2017/p1)
+add_subdirectory(project_2017/p2)
 #add_subdirectory(project_2016/p2)
 #add_subdirectory(project_2016/p3)
 #add_subdirectory(project_2016/p4)
