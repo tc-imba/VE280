@@ -47,7 +47,7 @@ list_t append(list_t first, list_t second)
 bool isArithmeticSequence(list_t v)
 {
     return (list_isEmpty(v) || list_isEmpty(list_rest(v)) || list_isEmpty(list_rest(list_rest(v)))) ? true :
-           (list_first(v) + list_first(list_rest(list_rest(v))) == list_first(list_rest(v)) && isArithmeticSequence(list_rest(v)));
+           (list_first(v) + list_first(list_rest(list_rest(v))) == 2 * list_first(list_rest(v)) && isArithmeticSequence(list_rest(v)));
 }
 
 list_t filter_odd(list_t list)
