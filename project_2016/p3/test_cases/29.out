@@ -1,0 +1,84 @@
+Initial state
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ho_n ____ 
+Round 1
+Creature (hop north 3 2) takes action:
+Instruction 1: hop
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ho_n ____ 
+____ ____ ____ ____ 
+Round 2
+Creature (hop north 2 2) takes action:
+Instruction 2: go 1
+Instruction 1: hop
+____ ____ ____ ____ 
+____ ____ ho_n ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 3
+Creature (hop north 1 2) takes action:
+Instruction 2: go 1
+Instruction 1: hop
+____ ____ ho_n ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 4
+Creature (hop north 0 2) takes action:
+Instruction 2: go 1
+Instruction 1: hop
+____ ____ ho_n ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 5
+Creature (hop north 0 2) takes action:
+Instruction 2: go 1
+Instruction 1: hop
+____ ____ ho_n ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 6
+Creature (hop north 0 2) takes action:
+Instruction 2: go 1
+Instruction 1: hop
+____ ____ ho_n ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 7
+Creature (hop north 0 2) takes action:
+Instruction 2: go 1
+Instruction 1: hop
+____ ____ ho_n ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 8
+Creature (hop north 0 2) takes action:
+Instruction 2: go 1
+Instruction 1: hop
+____ ____ ho_n ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 9
+Creature (hop north 0 2) takes action:
+Instruction 2: go 1
+Instruction 1: hop
+____ ____ ho_n ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 10
+Creature (hop north 0 2) takes action:
+Instruction 2: go 1
+Instruction 1: hop
+____ ____ ho_n ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
