@@ -115,17 +115,16 @@ static bool tree_hasMonotonicPath_helper(tree_t tree, bool(*fn)(int, int))
 
 bool tree_hasMonotonicPath(tree_t tree)
 {
-    return tree_isEmpty(tree) ? true :
-            tree_hasMonotonicPath_helper(tree, [](int a, int b)->bool {return a<=b;}) ||
-            tree_hasMonotonicPath_helper(tree, [](int a, int b)->bool {return a>=b;});
+    return !tree_isEmpty(tree) &&
+            (tree_hasMonotonicPath_helper(tree, [](int a, int b)->bool {return a<=b;}) ||
+            tree_hasMonotonicPath_helper(tree, [](int a, int b)->bool {return a>=b;}));
 }
 
 bool tree_allPathSumGreater(tree_t tree, int sum)
 {
-    return tree_isEmpty(tree) ? (sum > 0) :
-           tree_allPathSumGreater(tree_left(tree), sum - tree_elt(tree)) &&
-           tree_allPathSumGreater(tree_right(tree), sum - tree_elt(tree));
-
+    return !tree_isEmpty(tree) &&
+           !tree_isEmpty(tree_left(tree)) ? (tree_allPathSumGreater(tree_left(tree), sum - tree_elt(tree))) :
+           (!tree_isEmpty(tree_right(tree)) ? tree_allPathSumGreater(tree_right(tree), sum - tree_elt(tree)) : sum > tree_elt(tree));
 }
 
 bool covered_by(tree_t A, tree_t B)
