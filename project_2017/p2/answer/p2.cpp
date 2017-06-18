@@ -109,8 +109,8 @@ list_t traversal(tree_t tree)
 
 static bool tree_hasMonotonicPath_helper(tree_t tree, bool(*fn)(int, int))
 {
-    return (tree_isEmpty(tree_left(tree)) || (fn(tree_elt(tree), tree_elt(tree_left(tree))) && tree_hasMonotonicPath_helper(tree_left(tree), fn))) ||
-           (tree_isEmpty(tree_right(tree)) || (fn(tree_elt(tree), tree_elt(tree_right(tree))) && tree_hasMonotonicPath_helper(tree_right(tree), fn))) ;
+    return !tree_isEmpty(tree_left(tree)) ? (fn(tree_elt(tree), tree_elt(tree_left(tree))) && tree_hasMonotonicPath_helper(tree_left(tree), fn)) :
+           (!tree_isEmpty(tree_right(tree)) ? (fn(tree_elt(tree), tree_elt(tree_right(tree))) && tree_hasMonotonicPath_helper(tree_right(tree), fn)) : true);
 }
 
 bool tree_hasMonotonicPath(tree_t tree)

@@ -7,3 +7,4 @@ SET(SOURCE_FILES answer/simple_test.cpp answer/p2.cpp answer/recursive.cpp)
 
 add_executable(2017_p2 ${SOURCE_FILES})
 
+add_subdirectory(test)

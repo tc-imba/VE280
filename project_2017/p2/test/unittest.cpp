@@ -2,7 +2,9 @@
 // Created by liu on 17-6-8.
 //
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
+
+#include "list_test.h"
 
 int main(int argc, char **argv)
 {
