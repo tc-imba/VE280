@@ -1,6 +1,9 @@
 //
 // Created by liu on 17-6-29.
 //
+// Version 2.0
+// Updated 2017.6
+//
 
 #ifndef VE280_SIMULATION_H
 #define VE280_SIMULATION_H
@@ -87,6 +90,8 @@ namespace p3
 
         Creature(World *, std::string, std::string, int, int);
 
+        void addAbility(std::string ability);
+
         static std::string getDirectionName(const direction_t, bool = false);
 
         void changeSpecies(const Species *);
@@ -115,15 +120,15 @@ namespace p3
 
         void infect();
 
-        void ifempty(int);
+        void ifempty(unsigned int);
 
-        void ifwall(int);
+        void ifwall(unsigned int);
 
-        void ifsame(int);
+        void ifsame(unsigned int);
 
-        void ifenemy(int);
+        void ifenemy(unsigned int);
 
-        void go(int);
+        void go(unsigned int);
 
     };
 
@@ -298,7 +303,7 @@ namespace p3
     class UnknownTerrainException : public MyException
     {
     public:
-        UnknownTerrainException(char, point_t);
+        UnknownTerrainException(point_t, char);
     };
 
     /**
@@ -351,7 +356,7 @@ namespace p3
     class UnknownAbilityException: public MyException
     {
     public:
-        UnknownAbilityException(Creature *);
+        UnknownAbilityException(Creature *, std::string);
     };
 
     /**
