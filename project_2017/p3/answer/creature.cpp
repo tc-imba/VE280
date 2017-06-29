@@ -235,8 +235,7 @@ void Creature::infect()
 void Creature::ifempty(unsigned int address)
 {
     auto p = this->getForwardLocation();
-    if (this->isInside(p) && this->getWorld()->getCreature(p) == NULL &&
-        (this->ability[ARCH] || !this->isTerrain(p, FOREST)))
+    if (this->isInside(p) && this->getWorld()->getCreature(p) == NULL && !this->isTerrain(p, FOREST))
     {
         this->go(address);
     } else
@@ -268,8 +267,7 @@ void Creature::ifwall(unsigned int address)
 void Creature::ifsame(unsigned int address)
 {
     auto p = this->getForwardLocation();
-    if (this->getWorld()->getCreature(p) != NULL &&
-        (this->ability[ARCH] || !this->isTerrain(p, FOREST)))
+    if (this->getWorld()->getCreature(p) != NULL && !this->isTerrain(p, FOREST))
     {
         if (this->getWorld()->getCreature(p)->getSpecies() == this->getSpecies())
         {
@@ -287,8 +285,7 @@ void Creature::ifsame(unsigned int address)
 void Creature::ifenemy(unsigned int address)
 {
     auto p = this->getForwardLocation();
-    if (this->getWorld()->getCreature(p) != NULL &&
-        (this->ability[ARCH] || !this->isTerrain(p, FOREST)))
+    if (this->getWorld()->getCreature(p) != NULL && !this->isTerrain(p, FOREST))
     {
         if (this->getWorld()->getCreature(p)->getSpecies() != this->getSpecies())
         {
