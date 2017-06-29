@@ -59,8 +59,25 @@ namespace p3
     class CannotFlyException;
 
 
+    template<class T>
+    inline int length(T &a)
+    {
+        return sizeof(a) / sizeof(a[0]);
+    }
+
+    template<class T>
+    inline T operator++(T &a, int)
+    {
+        auto old = a;
+        a = T(a + 1);
+        return old;
+    }
+
     // Overload operator== for point_t to enable comparing
-    bool operator==(const point_t &, const point_t &);
+    inline bool operator==(const point_t &a, const point_t &b)
+    {
+        return a.c == b.c && a.r == b.r;
+    }
 
 
     class Species : protected species_t
@@ -110,6 +127,8 @@ namespace p3
 
         bool isInside() const;
 
+        bool isTerrain(const point_t &, terrain_t) const;
+
         point_t getForwordLocation() const;
 
         void hop();
@@ -144,6 +163,8 @@ namespace p3
         void setTerrain(const point_t &, char);
 
         bool isInside(const point_t &) const;
+
+        bool isTerrain(const point_t &, terrain_t) const;
 
         Creature *getCreature(const point_t &) const;
 
@@ -353,7 +374,7 @@ namespace p3
      * Error 14:
      * Check whether each ability of each creature is valid.
      */
-    class UnknownAbilityException: public MyException
+    class UnknownAbilityException : public MyException
     {
     public:
         UnknownAbilityException(Creature *, std::string);
