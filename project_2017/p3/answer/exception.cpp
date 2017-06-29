@@ -4,6 +4,7 @@
 
 #include <sstream>
 #include "simulation.h"
+
 using namespace p3;
 
 void MyException::make()
@@ -67,6 +68,26 @@ UnknownInstructionException::UnknownInstructionException(std::string UNKNOWN_INS
     this->make();
 }
 
+IllegalHeightException::IllegalHeightException()
+{
+    this->errStr[0] = "Error: The grid height is illegal!";
+}
+
+IllegalWidthException::IllegalWidthException()
+{
+    this->errStr[0] = "Error: The grid width is illegal!";
+}
+
+UnknownTerrainException::UnknownTerrainException(const point_t &p, char terrain)
+{
+    this->errStr[0] = "Error: Terrain square (<CHAR> <R> <C>) is invalid!";
+    this->errStr[++errNum] = terrain;
+    std::stringstream ss;
+    ss << p.r << " " << p.c;
+    ss >> this->errStr[++errNum] >> this->errStr[++errNum];
+    this->make();
+}
+
 TooManyCreatureException::TooManyCreatureException()
 {
     this->errStr[0] = "Error: Too many creatures!\n";
@@ -91,16 +112,6 @@ UnknownDirectionException::UnknownDirectionException(std::string UNKNOWN_DIRECTI
     this->make();
 }
 
-IllegalHeightException::IllegalHeightException()
-{
-    this->errStr[0] = "Error: The grid height is illegal!";
-}
-
-IllegalWidthException::IllegalWidthException()
-{
-    this->errStr[0] = "Error: The grid width is illegal!";
-}
-
 OutsideBoundaryException::OutsideBoundaryException(Creature *creature)
 {
     this->errStr[0] = "Error: Creature (<CREATURE>) is out of bound!\n";
@@ -108,8 +119,16 @@ OutsideBoundaryException::OutsideBoundaryException(Creature *creature)
     this->errStr[++errNum] = creature->serialize();
     auto grid = creature->getWorld()->getGrid();
     std::stringstream ss;
-    ss << (grid->getHeight()) << " " << grid->getWidth();
+    ss << grid->getHeight() << " " << grid->getWidth();
     ss >> this->errStr[++errNum] >> this->errStr[++errNum];
+    this->make();
+}
+
+UnknownAbilityException::UnknownAbilityException(Creature *creature, std::string ability)
+{
+    this->errStr[0] = "Error: Creature (<CREATURE>) has an invalid ability <ABILITY>!";
+    this->errStr[++errNum] = creature->serialize();
+    this->errStr[++errNum] = ability;
     this->make();
 }
 
@@ -121,12 +140,10 @@ OverlapCreatureException::OverlapCreatureException(Creature *newCreature, Creatu
     this->make();
 }
 
-UnknownAbilityException::UnknownAbilityException(Creature *, std::string)
+CannotFlyException::CannotFlyException(Creature *creature)
 {
-
-}
-
-UnknownTerrainException::UnknownTerrainException(point_t, char)
-{
-
+    this->errStr[0] = "Error: Creature (<CREATURE>) is in a lake square!\n";
+    this->errStr[0] += "The creature cannot fly!";
+    this->errStr[++errNum] = creature->serialize();
+    this->make();
 }

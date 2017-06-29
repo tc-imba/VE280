@@ -129,7 +129,11 @@ namespace p3
 
         bool isTerrain(const point_t &, terrain_t) const;
 
-        point_t getForwordLocation() const;
+        bool isTerrain(terrain_t) const;
+
+        point_t getForwardLocation(const point_t &) const;
+
+        point_t getForwardLocation() const;
 
         void hop();
 
@@ -239,7 +243,7 @@ namespace p3
     class MissingArgumentException : public MyException
     {
     public:
-        MissingArgumentException();
+        explicit MissingArgumentException();
     };
 
     /**
@@ -249,7 +253,7 @@ namespace p3
     class NegativeRoundException : public MyException
     {
     public:
-        NegativeRoundException();
+        explicit NegativeRoundException();
     };
 
     /**
@@ -261,7 +265,7 @@ namespace p3
     class FailureFileException : public MyException
     {
     public:
-        FailureFileException(std::string);
+        explicit FailureFileException(std::string);
     };
 
     /**
@@ -272,7 +276,7 @@ namespace p3
     class TooManySpeciesException : public MyException
     {
     public:
-        TooManySpeciesException();
+        explicit TooManySpeciesException();
     };
 
     /**
@@ -283,7 +287,7 @@ namespace p3
     class TooManyInstructionException : public MyException
     {
     public:
-        TooManyInstructionException(std::string);
+        explicit TooManyInstructionException(std::string);
     };
 
     /**
@@ -294,7 +298,7 @@ namespace p3
     class UnknownInstructionException : public MyException
     {
     public:
-        UnknownInstructionException(std::string);
+        explicit UnknownInstructionException(std::string);
     };
 
     /**
@@ -304,7 +308,7 @@ namespace p3
     class IllegalHeightException : public MyException
     {
     public:
-        IllegalHeightException();
+        explicit IllegalHeightException();
     };
 
     /**
@@ -314,7 +318,7 @@ namespace p3
     class IllegalWidthException : public MyException
     {
     public:
-        IllegalWidthException();
+        explicit IllegalWidthException();
     };
 
     /**
@@ -324,7 +328,7 @@ namespace p3
     class UnknownTerrainException : public MyException
     {
     public:
-        UnknownTerrainException(point_t, char);
+        explicit UnknownTerrainException(const point_t &, char);
     };
 
     /**
@@ -335,7 +339,7 @@ namespace p3
     class TooManyCreatureException : public MyException
     {
     public:
-        TooManyCreatureException();
+        explicit TooManyCreatureException();
     };
 
     /**
@@ -346,7 +350,7 @@ namespace p3
     class UnknownSpeciesException : public MyException
     {
     public:
-        UnknownSpeciesException(std::string);
+        explicit UnknownSpeciesException(std::string);
     };
 
     /**
@@ -357,7 +361,7 @@ namespace p3
     class UnknownDirectionException : public MyException
     {
     public:
-        UnknownDirectionException(std::string);
+        explicit UnknownDirectionException(std::string);
     };
 
     /**
@@ -367,7 +371,7 @@ namespace p3
     class OutsideBoundaryException : public MyException
     {
     public:
-        OutsideBoundaryException(Creature *);
+        explicit OutsideBoundaryException(Creature *);
     };
 
     /**
@@ -377,7 +381,7 @@ namespace p3
     class UnknownAbilityException : public MyException
     {
     public:
-        UnknownAbilityException(Creature *, std::string);
+        explicit UnknownAbilityException(Creature *, std::string);
     };
 
     /**
@@ -387,17 +391,17 @@ namespace p3
     class OverlapCreatureException : public MyException
     {
     public:
-        OverlapCreatureException(Creature *, Creature *);
+        explicit OverlapCreatureException(Creature *, Creature *);
     };
 
     /**
      * Error 16:
-     *
+     * Check whether a creature that cannot fly is not in a lake square.
      */
     class CannotFlyException : public MyException
     {
     public:
-        CannotFlyException(Creature *);
+        explicit CannotFlyException(Creature *);
     };
 
 }

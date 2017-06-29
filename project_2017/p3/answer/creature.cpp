@@ -59,7 +59,7 @@ Creature::Creature(World *world, std::string name, std::string direction, int ro
     {
         this->ability[i] = false;
     }
-    this->hillActive = false;
+    this->hillActive = true;
 }
 
 /**
@@ -137,37 +137,47 @@ inline bool Creature::isTerrain(const point_t &p, terrain_t terrain) const
     return this->getWorld()->getGrid()->isTerrain(p, terrain);
 }
 
-point_t Creature::getForwordLocation(point_t p) const
+inline bool Creature::isTerrain(terrain_t terrain) const
 {
+    return this->isTerrain(this->getLocation(), terrain);
+}
+
+point_t Creature::getForwardLocation(const point_t &p) const
+{
+    auto p2 = p;
     switch (this->getDirection())
     {
         case EAST:
-            p.c++;
+            p2.c++;
             break;
         case WEST:
-            p.c--;
+            p2.c--;
             break;
         case SOUTH:
-            p.r++;
+            p2.r++;
             break;
         case NORTH:
-            p.r--;
+            p2.r--;
             break;
         default:
             break;
     }
-    return p;
+    return p2;
 }
 
-point_t Creature::getForwordLocation() const
+point_t Creature::getForwardLocation() const
 {
-    return this->getForwordLocation(this->getLocation());
+    return this->getForwardLocation(this->getLocation());
 }
 
+/**
+ * @version 2.0 Add ability FLY and terrain LAKE
+ */
 void Creature::hop()
 {
-    auto p = this->getForwordLocation();
-    if (isInside(p) && this->getWorld()->getCreature(p) == NULL)
+    auto p = this->getForwardLocation();
+    if (isInside(p) && this->getWorld()->getCreature(p) == NULL &&
+        (this->ability[FLY] || !this->isTerrain(p, LAKE)))
     {
         this->getWorld()->getGrid()->move(this->getLocation(), p);
         this->location = p;
@@ -187,26 +197,26 @@ void Creature::right()
     this->programID++;
 }
 
+/**
+ * @version 2.0 Add ability ARCH and terrain FOREST
+ */
 void Creature::infect()
 {
-    auto p = this->getForwordLocation();
-
-    if (!this->ability[ARCH] && this->isTerrain(p, FOREST))
-    {
-        this->programID++;
-        return;
-    }
-
+    auto p = this->getForwardLocation();
     auto target = this->getWorld()->getCreature(p);
 
     if (this->ability[ARCH])
     {
-        while(target==NULL)
+        while (target == NULL || target->getSpecies() == this->getSpecies())
         {
-            p =
+            p = this->getForwardLocation(p);
+            if (!this->isInside(p))break;
+            target = this->getWorld()->getCreature(p);
         }
+    } else if (this->isTerrain(p, FOREST))
+    {
+        target = NULL;
     }
-
 
     if (target != NULL)
     {
@@ -218,10 +228,15 @@ void Creature::infect()
     this->programID++;
 }
 
+/**
+ * version 2.0 terrain FOREST is always NOT empty
+ * @param address
+ */
 void Creature::ifempty(unsigned int address)
 {
-    auto p = this->getForwordLocation();
-    if (this->isInside(p) && this->getWorld()->getCreature(p) == NULL)
+    auto p = this->getForwardLocation();
+    if (this->isInside(p) && this->getWorld()->getCreature(p) == NULL &&
+        (this->ability[ARCH] || !this->isTerrain(p, FOREST)))
     {
         this->go(address);
     } else
@@ -236,7 +251,7 @@ void Creature::ifempty(unsigned int address)
  */
 void Creature::ifwall(unsigned int address)
 {
-    auto p = this->getForwordLocation();
+    auto p = this->getForwardLocation();
     if (!this->isInside(p) || (!this->ability[FLY] && this->isTerrain(p, LAKE)))
     {
         this->go(address);
@@ -246,10 +261,15 @@ void Creature::ifwall(unsigned int address)
     }
 }
 
+/**
+ * @version 2.0 terrain FOREST is always NOT same
+ * @param address
+ */
 void Creature::ifsame(unsigned int address)
 {
-    auto p = this->getForwordLocation();
-    if (this->getWorld()->getCreature(p) != NULL)
+    auto p = this->getForwardLocation();
+    if (this->getWorld()->getCreature(p) != NULL &&
+        (this->ability[ARCH] || !this->isTerrain(p, FOREST)))
     {
         if (this->getWorld()->getCreature(p)->getSpecies() == this->getSpecies())
         {
@@ -260,10 +280,15 @@ void Creature::ifsame(unsigned int address)
     this->programID++;
 }
 
+/**
+ * @version 2.0 terrain FOREST is always NOT enemy
+ * @param address
+ */
 void Creature::ifenemy(unsigned int address)
 {
-    auto p = this->getForwordLocation();
-    if (this->getWorld()->getCreature(p) != NULL)
+    auto p = this->getForwardLocation();
+    if (this->getWorld()->getCreature(p) != NULL &&
+        (this->ability[ARCH] || !this->isTerrain(p, FOREST)))
     {
         if (this->getWorld()->getCreature(p)->getSpecies() != this->getSpecies())
         {

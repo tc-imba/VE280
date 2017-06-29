@@ -49,7 +49,7 @@ inline bool Grid::isInside(const point_t &p) const
  */
 inline bool Grid::isTerrain(const point_t &p, terrain_t terrain) const
 {
-    return this->terrain[p.r][p.c] == terrain;
+    return this->isInside(p) && this->terrain[p.r][p.c] == terrain;
 }
 
 inline Creature *Grid::getCreature(const point_t &p) const

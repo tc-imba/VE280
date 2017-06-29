@@ -6,6 +6,7 @@
 #include <sstream>
 #include <fstream>
 #include "simulation.h"
+
 using namespace p3;
 
 Controller::Controller(int argc, char *argv[])
@@ -150,11 +151,22 @@ void Controller::readWorld(std::string worldPath)
             ss >> ability;
             if (ability.length() > 0) creature->addAbility(ability);
         }
+
+        if (creature->isTerrain(LAKE) && !creature->ability[FLY])
+        {
+            throw CannotFlyException(creature);
+        }
     }
 }
 
 void Controller::creatureMove(Creature *creature)
 {
+    if (creature->isTerrain(HILL) && !creature->ability[FLY] && !creature->hillActive)
+    {
+        creature->hillActive = true;
+        return;
+    }
+
     auto species = creature->getSpecies();
     auto programID = creature->programID;
     auto instruction = species->program[programID];
@@ -197,6 +209,10 @@ void Controller::creatureMove(Creature *creature)
     if (Species::isEndOption(instruction.op))
     {
         std::cout << " " << Species::getOptionName(instruction.op);
+        if (creature->isTerrain(HILL) && !creature->ability[FLY])
+        {
+            creature->hillActive = false;
+        }
     } else
     {
         if (this->verbose)
