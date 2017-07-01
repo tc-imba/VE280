@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
         controller.readWorld(argv[2]);
         controller.simulate();
     }
-    catch (p3::MyException e)
+    catch (p3::MyException &e)
     {
         cout << e.what() << endl;
     }

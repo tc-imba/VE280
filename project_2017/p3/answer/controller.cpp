@@ -32,7 +32,7 @@ Controller::Controller(int argc, char *argv[])
     }
 }
 
-void Controller::readSpecies(const std::string speciesPath)
+void Controller::readSpecies(const std::string &speciesPath)
 {
     // Open the species summary file
     std::ifstream speciesSummary(speciesPath);
@@ -47,8 +47,9 @@ void Controller::readSpecies(const std::string speciesPath)
         // Open the files in the species directory
         std::string speciesName;
         speciesSummary >> speciesName;
-        if (speciesName == "") continue;
-        std::string speciesFullPath = speciesDirectory + "/" + speciesName;
+        if (speciesName.empty()) continue;
+        std::string speciesFullPath = speciesDirectory;
+        speciesFullPath += "/" + speciesName;
         std::ifstream speciesFile(speciesFullPath);
         if (!speciesFile.is_open())
         {
@@ -56,13 +57,13 @@ void Controller::readSpecies(const std::string speciesPath)
         }
 
         // Examine the number of current species before adding a new one
-        if (this->world->numSpecies >= MAXSPECIES)
+        if (this->world->getSpeciesNum() >= MAXSPECIES)
         {
             throw TooManySpeciesException();
         }
 
         // Create the species
-        auto species = this->world->m_species[this->world->numSpecies++] = new Species(speciesName);
+        auto species = this->world->addSpecies(new Species(speciesName));
         std::stringstream ss;
         while (!speciesFile.eof())
         {
@@ -72,7 +73,7 @@ void Controller::readSpecies(const std::string speciesPath)
             ss.clear();
             ss.str(optionLine);
             if (!ss.eof()) ss >> optionStr;
-            if (optionStr == "") break;
+            if (optionStr.empty()) break;
             if (!ss.eof()) ss >> optionAddress;
 
             species->addInstruction(optionStr, optionAddress);
@@ -91,7 +92,7 @@ void Controller::readSpecies(const std::string speciesPath)
  * @throws TooManyCreatureException
  * @param worldPath
  */
-void Controller::readWorld(std::string worldPath)
+void Controller::readWorld(const std::string &worldPath)
 {
     std::ifstream worldFile(worldPath);
     if (!worldFile.is_open())
@@ -110,8 +111,7 @@ void Controller::readWorld(std::string worldPath)
     {
         throw IllegalWidthException();
     }
-    this->world->grid.height = (unsigned) height;
-    this->world->grid.width = (unsigned) width;
+    this->world->getGrid()->setSize((unsigned) height, (unsigned) width);
 
     // Read the terrain of each box, assuming that the format is correct
     for (int i = 0; i < height; i++)
@@ -130,8 +130,8 @@ void Controller::readWorld(std::string worldPath)
     {
         std::string worldLine;
         getline(worldFile, worldLine);
-        if (worldLine == "")continue;
-        if (this->world->numCreatures >= MAXCREATURES)
+        if (worldLine.empty())continue;
+        if (this->world->getCreatureNum() >= MAXCREATURES)
         {
             throw TooManyCreatureException();
         }
@@ -142,8 +142,7 @@ void Controller::readWorld(std::string worldPath)
         ss >> name >> direction >> row >> column;
 
         auto creature = new Creature(this->world, name, direction, row, column);
-        this->world->m_creatures[this->world->numCreatures++] = creature;
-        this->world->getGrid()->squares[row][column] = (creature_t *) creature;
+        this->world->addCreature(creature);
 
         std::string ability;
         while (!ss.eof())
@@ -152,7 +151,7 @@ void Controller::readWorld(std::string worldPath)
             if (ability.length() > 0) creature->addAbility(ability);
         }
 
-        if (creature->isTerrain(LAKE) && !creature->ability[FLY])
+        if (creature->isTerrain(LAKE) && !creature->hasAbility(FLY))
         {
             throw CannotFlyException(creature);
         }
@@ -161,15 +160,11 @@ void Controller::readWorld(std::string worldPath)
 
 void Controller::creatureMove(Creature *creature)
 {
-    if (creature->isTerrain(HILL) && !creature->ability[FLY] && !creature->hillActive)
-    {
-        creature->hillActive = true;
-        return;
-    }
+    if (creature->stayHill()) return;
 
     auto species = creature->getSpecies();
-    auto programID = creature->programID;
-    auto instruction = species->program[programID];
+    auto programID = creature->getProgramID();
+    auto instruction = species->getInstruction(programID);
     switch (instruction.op)
     {
         case HOP:
@@ -209,9 +204,9 @@ void Controller::creatureMove(Creature *creature)
     if (Species::isEndOption(instruction.op))
     {
         std::cout << " " << Species::getOptionName(instruction.op);
-        if (creature->isTerrain(HILL) && !creature->ability[FLY])
+        if (creature->isTerrain(HILL) && !creature->hasAbility(FLY))
         {
-            creature->hillActive = false;
+            creature->enterHill();
         }
     } else
     {
@@ -226,12 +221,12 @@ void Controller::creatureMove(Creature *creature)
 void Controller::simulateRound()
 {
     std::cout << "Round " << (this->round + 1) << std::endl;
-    for (int i = 0; i < this->world->numCreatures; i++)
+    for (unsigned int i = 0; i < this->world->getCreatureNum(); i++)
     {
-        std::cout << "Creature (" << this->world->m_creatures[i]->serialize() << ") takes action:";
-        this->creatureMove(this->world->m_creatures[i]);
+        std::cout << "Creature (" << this->world->getCreature(i)->serialize() << ") takes action:";
+        this->creatureMove(this->world->getCreature(i));
         std::cout << std::endl;
-        if (this->verbose || i == this->world->numCreatures - 1)
+        if (this->verbose || i == this->world->getCreatureNum() - 1)
         {
             std::cout << this->world->getGrid()->serialize();
         }

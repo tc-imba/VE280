@@ -52,7 +52,7 @@ Creature::Creature(World *world, std::string name, std::string direction, int ro
 
     // Judge whether there is a creature at the location
     auto origin = this->getWorld()->getCreature(this->location);
-    if (origin) throw OverlapCreatureException(this, origin);
+    if (origin != NULL) throw OverlapCreatureException(this, origin);
 
     // The creature don't have abilities and hill status in default
     for (int i = 0; i < length(abilityShortName); i++)
@@ -60,6 +60,11 @@ Creature::Creature(World *world, std::string name, std::string direction, int ro
         this->ability[i] = false;
     }
     this->hillActive = true;
+}
+
+inline unsigned int Creature::getProgramID() const
+{
+    return this->programID;
 }
 
 /**
@@ -82,7 +87,12 @@ void Creature::addAbility(std::string ability)
     throw UnknownAbilityException(this, ability);
 }
 
-inline std::string Creature::getDirectionName(const direction_t direct, bool shortFlag)
+inline bool Creature::hasAbility(const ability_t &ability) const
+{
+    return this->ability[ability];
+}
+
+inline const std::string &Creature::getDirectionName(const direction_t &direct, bool shortFlag)
 {
     return shortFlag ? directShortName[direct] : directName[direct];
 }
@@ -299,4 +309,22 @@ void Creature::ifenemy(unsigned int address)
 void Creature::go(unsigned int address)
 {
     this->programID = address;
+}
+
+/**
+ * @version 2.0 Added
+ * @return
+ */
+bool Creature::stayHill()
+{
+    if (this->isTerrain(HILL) && !this->hasAbility(FLY) && !this->hillActive)
+    {
+        return (this->hillActive = true);
+    }
+    return false;
+}
+
+void Creature::enterHill()
+{
+    this->hillActive = false;
 }

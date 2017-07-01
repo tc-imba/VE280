@@ -83,17 +83,15 @@ namespace p3
     class Species : protected species_t
     {
     public:
-        friend class Controller;
+        explicit Species(const std::string &);
 
-        friend class Creature;
+        static std::string getOptionName(const opcode_t &);
 
-        Species(const std::string);
+        static bool isEndOption(const opcode_t &);
 
-        static std::string getOptionName(const opcode_t);
+        const instruction_t &getInstruction(const int &) const;
 
-        static bool isEndOption(const opcode_t);
-
-        void addInstruction(const std::string, const int = 0);
+        void addInstruction(const std::string &, const int & = 0);
 
         std::string getName() const;
     };
@@ -103,13 +101,16 @@ namespace p3
     protected:
         World *m_world;
     public:
-        friend class Controller;
 
-        Creature(World *, std::string, std::string, int, int);
+        explicit Creature(World *, std::string, std::string, int, int);
+
+        unsigned int getProgramID() const;
 
         void addAbility(std::string ability);
 
-        static std::string getDirectionName(const direction_t, bool = false);
+        bool hasAbility(const ability_t &) const;
+
+        static const std::string& getDirectionName(const direction_t &, bool = false);
 
         void changeSpecies(const Species *);
 
@@ -153,22 +154,26 @@ namespace p3
 
         void go(unsigned int);
 
+        bool stayHill();
+
+        void enterHill();
     };
 
     class Grid : protected grid_t
     {
     public:
-        friend class Controller;
 
-        friend class World;
+        explicit Grid(grid_t &);
 
-        Grid();
+        void setSize(const unsigned int &, const unsigned int &);
 
         void setTerrain(const point_t &, char);
 
         bool isInside(const point_t &) const;
 
         bool isTerrain(const point_t &, terrain_t) const;
+
+        void addCreature(Creature *);
 
         Creature *getCreature(const point_t &) const;
 
@@ -187,15 +192,22 @@ namespace p3
         Species *m_species[MAXSPECIES];
         Creature *m_creatures[MAXCREATURES];
     public:
-        friend class Controller;
 
-        World();
+        explicit World();
 
         Grid *getGrid() const;
 
+        Creature *addCreature(Creature *);
+
         Creature *getCreature(const point_t &) const;
 
-        Species *getSpecies(const std::string) const;
+        Creature *getCreature(const unsigned int &) const;
+
+        Species *addSpecies(Species *);
+
+        Species *getSpecies(const std::string &) const;
+
+        int getCreatureNum() const;
 
         int getSpeciesNum() const;
     };
@@ -207,11 +219,11 @@ namespace p3
         bool verbose;
         World *world;
     public:
-        Controller(int argc, char *argv[]);
+        explicit Controller(int argc, char *argv[]);
 
-        void readSpecies(const std::string);
+        void readSpecies(const std::string &);
 
-        void readWorld(const std::string);
+        void readWorld(const std::string &);
 
         void creatureMove(Creature *);
 

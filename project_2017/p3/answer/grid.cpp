@@ -6,7 +6,7 @@
 
 using namespace p3;
 
-Grid::Grid()
+Grid::Grid(grid_t &grid)
 {
     for (auto i = 0; i < MAXHEIGHT; i++)
     {
@@ -15,6 +15,13 @@ Grid::Grid()
             this->squares[i][j] = NULL;
         }
     }
+    grid = *this;
+}
+
+inline void Grid::setSize(const unsigned int &height, const unsigned int &width)
+{
+    this->height = height;
+    this->width = width;
 }
 
 /**
@@ -50,6 +57,12 @@ inline bool Grid::isInside(const point_t &p) const
 inline bool Grid::isTerrain(const point_t &p, terrain_t terrain) const
 {
     return this->isInside(p) && this->terrain[p.r][p.c] == terrain;
+}
+
+inline void Grid::addCreature(Creature *creature)
+{
+    auto p = creature->getLocation();
+    this->squares[p.r][p.c] = (creature_t *) creature;
 }
 
 inline Creature *Grid::getCreature(const point_t &p) const
