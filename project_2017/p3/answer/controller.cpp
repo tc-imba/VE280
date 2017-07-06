@@ -160,8 +160,6 @@ void Controller::readWorld(const std::string &worldPath)
 
 void Controller::creatureMove(Creature *creature)
 {
-    if (creature->stayHill()) return;
-
     auto species = creature->getSpecies();
     auto programID = creature->getProgramID();
     auto instruction = species->getInstruction(programID);
@@ -204,10 +202,6 @@ void Controller::creatureMove(Creature *creature)
     if (Species::isEndOption(instruction.op))
     {
         std::cout << " " << Species::getOptionName(instruction.op);
-        if (creature->isTerrain(HILL) && !creature->hasAbility(FLY))
-        {
-            creature->enterHill();
-        }
     } else
     {
         if (this->verbose)
@@ -223,12 +217,18 @@ void Controller::simulateRound()
     std::cout << "Round " << (this->round + 1) << std::endl;
     for (unsigned int i = 0; i < this->world->getCreatureNum(); i++)
     {
-        std::cout << "Creature (" << this->world->getCreature(i)->serialize() << ") takes action:";
-        this->creatureMove(this->world->getCreature(i));
+        auto creature = this->world->getCreature(i);
+        if (creature->stayHill()) continue;
+        std::cout << "Creature (" << creature->serialize() << ") takes action:";
+        this->creatureMove(creature);
         std::cout << std::endl;
         if (this->verbose || i == this->world->getCreatureNum() - 1)
         {
             std::cout << this->world->getGrid()->serialize();
+        }
+        if (creature->isTerrain(HILL) && !creature->hasAbility(FLY))
+        {
+            creature->enterHill();
         }
     }
 }
