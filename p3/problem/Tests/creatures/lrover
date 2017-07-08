@@ -1,0 +1,13 @@
+ifenemy 8 If there is an enemy
+ifwall 6
+ifsame 6
+hop
+go 1
+left
+go 1
+infect
+go 1
+
+
+The lrover constantly moves forward.  When it
+runs into a wall or another lrover, it turns left.

@@ -1,0 +1,12 @@
+ifwall 5
+ifsame 5
+infect
+go 1
+left
+go 1
+
+
+The Land Mine turns until it is not facing a wall and then
+just infects. It's lazy -- taking no risks and expending no
+energy. The existence of Food does not favor the LandMine
+since it will never move to find the food.
