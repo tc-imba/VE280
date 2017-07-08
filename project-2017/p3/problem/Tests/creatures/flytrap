@@ -1,0 +1,9 @@
+ifenemy 4    If there is an enemy, go to step 4.
+left         If no enemy, turn left.
+go 1
+infect
+go 1
+
+The flytrap sits in one place and spins.
+It infects anything which comes in front.
+Flytraps do well when they clump.

@@ -1,0 +1,23 @@
+ifenemy 8 If there is an enemy
+ifwall 6
+ifsame 6
+hop
+go 1
+left
+go 10
+infect
+go 1
+ifenemy 17 If there is an enemy
+ifwall 15
+ifsame 15
+hop
+go 10
+right
+go 1
+infect
+go 10
+
+
+The alt_rover constantly moves forward.  When it
+runs into a wall or another alt_rover, it turns left and right
+alternatively.
