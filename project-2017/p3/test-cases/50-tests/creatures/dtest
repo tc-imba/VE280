@@ -1,0 +1,11 @@
+ifsame 4
+left
+go 5
+right
+ifenemy 7
+go 8
+infect
+ifempty 10
+go 2
+infect
+go 2

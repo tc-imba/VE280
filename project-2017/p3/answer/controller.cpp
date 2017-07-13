@@ -222,15 +222,13 @@ void Controller::simulateRound()
         std::cout << "Creature (" << creature->serialize() << ") takes action:";
         this->creatureMove(creature);
         std::cout << std::endl;
-        if (this->verbose || i == this->world->getCreatureNum() - 1)
-        {
-            std::cout << this->world->getGrid()->serialize();
-        }
+        if (this->verbose) std::cout << this->world->getGrid()->serialize();
         if (creature->isTerrain(HILL) && !creature->hasAbility(FLY))
         {
             creature->enterHill();
         }
     }
+    if (!this->verbose) std::cout << this->world->getGrid()->serialize();
 }
 
 void Controller::simulate()

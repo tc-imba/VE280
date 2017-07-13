@@ -1,0 +1,21 @@
+12
+6
+LFHLLH
+LHFFLF
+HHPPFP
+FLHHLH
+PHFLLH
+PFHHHP
+HHLLLF
+LHLPPH
+PLLFLL
+HLLFHF
+PPHPLF
+LPFLFF
+hop north 6 0 a
+hop south 7 0 f 
+rrover east 5 5 
+lrover north 8 0 
+alt_rover west 9 1 f
+lrover east 10 5 f a
+rrover north 4 1 f a

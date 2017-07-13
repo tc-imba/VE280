@@ -1,0 +1,13 @@
+3
+16
+LHPHPHPLHPPFFHFH
+FFHPFFFLPFPPPLPH
+FPHLHFFLHHFLHFPF
+landmine north 1 6 f a
+hop west 0 7 f 
+rrover east 1 15 a
+flytrap north 0 3 a
+landmine south 2 5 f
+flytrap north 2 2 f
+hop north 2 10 a
+rrover north 1 11 
