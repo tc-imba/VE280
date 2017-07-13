@@ -1,0 +1,11 @@
+# build files
+*.out
+p3
+output-*
+*.cpp
+simulation.h
+
+# idea and cmake
+cmake-build-debug
+.idea
+.directory

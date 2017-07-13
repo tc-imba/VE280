@@ -59,7 +59,7 @@ Creature::Creature(World *world, std::string name, std::string direction, int ro
     {
         this->ability[i] = false;
     }
-    this->hillActive = true;
+    this->hillActive = false;
 }
 
 inline unsigned int Creature::getProgramID() const
@@ -238,14 +238,11 @@ void Creature::infect()
     this->programID++;
 }
 
-/**
- * version 2.0 terrain FOREST is always NOT empty
- * @param address
- */
+
 void Creature::ifempty(unsigned int address)
 {
     auto p = this->getForwardLocation();
-    if (this->isInside(p) && this->getWorld()->getCreature(p) == NULL && !this->isTerrain(p, FOREST))
+    if (this->isInside(p) && this->getWorld()->getCreature(p) == NULL)
     {
         this->go(address);
     } else

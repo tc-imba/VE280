@@ -1,0 +1,644 @@
+Initial state
+____ ____ ____ fl_e ____ ____ ____ ____ al_w ho_s 
+____ ____ al_s ____ ____ rr_s ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ho_s ____ ____ ____ 
+rr_n fl_s ____ ____ ____ ____ ____ ____ ____ ____ 
+Round 1
+Creature (flytrap south 3 1) takes action: left
+Creature (rrover south 1 5) takes action: hop
+Creature (flytrap east 0 3) takes action: left
+Creature (alt_rover west 0 8) takes action: hop
+Creature (rrover north 3 0) takes action: right
+Creature (hop south 0 9) takes action: hop
+Creature (alt_rover south 1 2) takes action: hop
+Creature (hop south 2 6) takes action: hop
+____ ____ ____ fl_n ____ ____ ____ al_w ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ho_s 
+____ ____ al_s ____ ____ rr_s ____ ____ ____ ____ 
+rr_e fl_e ____ ____ ____ ____ ho_s ____ ____ ____ 
+Round 2
+Creature (flytrap east 3 1) takes action: left
+Creature (rrover south 2 5) takes action: hop
+Creature (flytrap north 0 3) takes action: left
+Creature (alt_rover west 0 7) takes action: hop
+Creature (rrover east 3 0) takes action: infect
+Creature (hop south 1 9) takes action: hop
+Creature (alt_rover south 2 2) takes action: hop
+Creature (hop south 3 6) takes action: hop
+____ ____ ____ fl_w ____ ____ al_w ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ho_s 
+rr_e rr_n al_s ____ ____ rr_s ho_s ____ ____ ____ 
+Round 3
+Creature (rrover north 3 1) takes action: hop
+Creature (rrover south 3 5) takes action: right
+Creature (flytrap west 0 3) takes action: left
+Creature (alt_rover west 0 6) takes action: hop
+Creature (rrover east 3 0) takes action: hop
+Creature (hop south 2 9) takes action: hop
+Creature (alt_rover south 3 2) takes action: left
+Creature (hop south 3 6) takes action: hop
+____ ____ ____ fl_s ____ al_w ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ rr_n ____ ____ ____ ____ ____ ____ ____ ____ 
+____ rr_e al_e ____ ____ rr_w ho_s ____ ____ ho_s 
+Round 4
+Creature (rrover north 2 1) takes action: hop
+Creature (rrover west 3 5) takes action: hop
+Creature (flytrap south 0 3) takes action: left
+Creature (alt_rover west 0 5) takes action: hop
+Creature (hop south 3 9) takes action: hop
+Creature (alt_rover east 3 2) takes action: hop
+Creature (hop south 3 6) takes action: hop
+____ ____ ____ fl_e al_w ____ ____ ____ ____ ____ 
+____ rr_n ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ rr_e ____ al_e rr_w ____ ho_s ____ ____ ho_s 
+Round 5
+Creature (rrover north 1 1) takes action: hop
+Creature (rrover west 3 4) takes action: infect
+Creature (flytrap east 0 3) takes action: left
+Creature (alt_rover west 0 4) takes action: infect
+Creature (rrover east 3 1) takes action: hop
+Creature (hop south 3 9) takes action: hop
+Creature (rrover east 3 3) takes action: right
+Creature (hop south 3 6) takes action: hop
+____ rr_n ____ al_n al_w ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ rr_e rr_s rr_w ____ ho_s ____ ____ ho_s 
+Round 6
+Creature (rrover north 0 1) takes action: right
+Creature (rrover west 3 4) takes action: right
+Creature (alt_rover north 0 3) takes action: left
+Creature (alt_rover west 0 4) takes action: left
+Creature (rrover east 3 2) takes action: right
+Creature (hop south 3 9) takes action: hop
+Creature (rrover south 3 3) takes action: right
+Creature (hop south 3 6) takes action: hop
+____ rr_e ____ al_w al_s ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ rr_s rr_w rr_n ____ ho_s ____ ____ ho_s 
+Round 7
+Creature (rrover east 0 1) takes action: hop
+Creature (rrover north 3 4) takes action: hop
+Creature (alt_rover west 0 3) takes action: infect
+Creature (alt_rover south 0 4) takes action: hop
+Creature (rrover south 3 2) takes action: right
+Creature (hop south 3 9) takes action: hop
+Creature (rrover west 3 3) takes action: hop
+Creature (hop south 3 6) takes action: hop
+____ ____ al_e al_w ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ al_s ____ ____ ____ ____ ____ 
+____ ____ ____ ____ rr_n ____ ____ ____ ____ ____ 
+____ ____ rr_w rr_w ____ ____ ho_s ____ ____ ho_s 
+Round 8
+Creature (alt_rover east 0 2) takes action: left
+Creature (rrover north 2 4) takes action: infect
+Creature (alt_rover west 0 3) takes action: right
+Creature (rrover south 1 4) takes action: right
+Creature (rrover west 3 2) takes action: hop
+Creature (hop south 3 9) takes action: hop
+Creature (rrover west 3 3) takes action: hop
+Creature (hop south 3 6) takes action: hop
+____ ____ al_n al_n ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ rr_w ____ ____ ____ ____ ____ 
+____ ____ ____ ____ rr_n ____ ____ ____ ____ ____ 
+____ rr_w rr_w ____ ____ ____ ho_s ____ ____ ho_s 
+Round 9
+Creature (alt_rover north 0 2) takes action: right
+Creature (rrover north 2 4) takes action: right
+Creature (alt_rover north 0 3) takes action: left
+Creature (rrover west 1 4) takes action: hop
+Creature (hop south 3 9) takes action: hop
+Creature (rrover west 3 2) takes action: right
+Creature (hop south 3 6) takes action: hop
+____ ____ al_e al_w ____ ____ ____ ____ ____ ____ 
+____ ____ ____ rr_w ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ rr_e ____ ____ ____ ____ ____ 
+____ rr_w rr_n ____ ____ ____ ho_s ____ ____ ho_s 
+Round 10
+Creature (alt_rover east 0 2) takes action: left
+Creature (rrover east 2 4) takes action: hop
+Creature (alt_rover west 0 3) takes action: right
+Creature (rrover west 1 3) takes action: hop
+Creature (rrover west 3 1) takes action: hop
+Creature (hop south 3 9) takes action: hop
+Creature (rrover north 3 2) takes action: hop
+Creature (hop south 3 6) takes action: hop
+____ ____ al_n al_n ____ ____ ____ ____ ____ ____ 
+____ ____ rr_w ____ ____ ____ ____ ____ ____ ____ 
+____ ____ rr_n ____ ____ rr_e ____ ____ ____ ____ 
+rr_w ____ ____ ____ ____ ____ ho_s ____ ____ ho_s 
+Round 11
+Creature (alt_rover north 0 2) takes action: right
+Creature (rrover east 2 5) takes action: hop
+Creature (alt_rover north 0 3) takes action: left
+Creature (rrover west 1 2) takes action: hop
+Creature (rrover west 3 0) takes action: right
+Creature (hop south 3 9) takes action: hop
+Creature (rrover north 2 2) takes action: hop
+Creature (hop south 3 6) takes action: hop
+____ ____ al_e al_w ____ ____ ____ ____ ____ ____ 
+____ rr_w rr_n ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ rr_e ____ ____ ____ 
+rr_n ____ ____ ____ ____ ____ ho_s ____ ____ ho_s 
+Round 12
+Creature (alt_rover east 0 2) takes action: left
+Creature (rrover east 2 6) takes action: hop
+Creature (alt_rover west 0 3) takes action: right
+Creature (rrover west 1 1) takes action: hop
+Creature (rrover north 3 0) takes action: right
+Creature (hop south 3 9) takes action: hop
+Creature (rrover north 1 2) takes action: infect
+Creature (hop south 3 6) takes action: hop
+____ ____ rr_n al_n ____ ____ ____ ____ ____ ____ 
+rr_w ____ rr_n ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ rr_e ____ ____ 
+rr_e ____ ____ ____ ____ ____ ho_s ____ ____ ho_s 
+Round 13
+Creature (rrover north 0 2) takes action: right
+Creature (rrover east 2 7) takes action: hop
+Creature (alt_rover north 0 3) takes action: left
+Creature (rrover west 1 0) takes action: right
+Creature (rrover east 3 0) takes action: hop
+Creature (hop south 3 9) takes action: hop
+Creature (rrover north 1 2) takes action: right
+Creature (hop south 3 6) takes action: hop
+____ ____ rr_e al_w ____ ____ ____ ____ ____ ____ 
+rr_n ____ rr_e ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ rr_e ____ 
+____ rr_e ____ ____ ____ ____ ho_s ____ ____ ho_s 
+Round 14
+Creature (rrover east 0 2) takes action: infect
+Creature (rrover east 2 8) takes action: hop
+Creature (rrover west 0 3) takes action: right
+Creature (rrover north 1 0) takes action: hop
+Creature (hop south 3 9) takes action: hop
+Creature (rrover east 1 2) takes action: hop
+Creature (hop south 3 6) takes action: hop
+rr_n ____ rr_e rr_n ____ ____ ____ ____ ____ ____ 
+____ ____ ____ rr_e ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ rr_e 
+____ rr_e ____ ____ ____ ____ ho_s ____ ____ ho_s 
+Round 15
+Creature (rrover east 0 2) takes action: right
+Creature (rrover east 2 9) takes action: right
+Creature (rrover north 0 3) takes action: right
+Creature (rrover north 0 0) takes action: right
+Creature (rrover east 3 1) takes action: hop
+Creature (hop south 3 9) takes action: hop
+Creature (rrover east 1 3) takes action: hop
+Creature (hop south 3 6) takes action: hop
+rr_e ____ rr_s rr_e ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ rr_e ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ rr_s 
+____ ____ rr_e ____ ____ ____ ho_s ____ ____ ho_s 
+Round 16
+Creature (rrover south 0 2) takes action: hop
+Creature (rrover south 2 9) takes action: infect
+Creature (rrover east 0 3) takes action: hop
+Creature (rrover east 0 0) takes action: hop
+Creature (rrover east 3 2) takes action: hop
+Creature (rrover south 3 9) takes action: right
+Creature (rrover east 1 4) takes action: hop
+Creature (hop south 3 6) takes action: hop
+____ rr_e ____ ____ rr_e ____ ____ ____ ____ ____ 
+____ ____ rr_s ____ ____ rr_e ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ rr_s 
+____ ____ ____ rr_e ____ ____ ho_s ____ ____ rr_w 
+Round 17
+Creature (rrover south 1 2) takes action: hop
+Creature (rrover south 2 9) takes action: right
+Creature (rrover east 0 4) takes action: hop
+Creature (rrover east 0 1) takes action: hop
+Creature (rrover west 3 9) takes action: hop
+Creature (rrover east 1 5) takes action: hop
+Creature (hop south 3 6) takes action: hop
+____ ____ rr_e ____ ____ rr_e ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ rr_e ____ ____ ____ 
+____ ____ rr_s ____ ____ ____ ____ ____ ____ rr_w 
+____ ____ ____ rr_e ____ ____ ho_s ____ rr_w ____ 
+Round 18
+Creature (rrover south 2 2) takes action: hop
+Creature (rrover west 2 9) takes action: hop
+Creature (rrover east 0 5) takes action: hop
+Creature (rrover east 0 2) takes action: hop
+Creature (rrover east 3 3) takes action: right
+Creature (rrover west 3 8) takes action: hop
+Creature (rrover east 1 6) takes action: hop
+Creature (hop south 3 6) takes action: hop
+____ ____ ____ rr_e ____ ____ rr_e ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ rr_e ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ rr_w ____ 
+____ ____ rr_s rr_s ____ ____ ho_s rr_w ____ ____ 
+Round 19
+Creature (rrover south 3 2) takes action: right
+Creature (rrover west 2 8) takes action: hop
+Creature (rrover east 0 6) takes action: hop
+Creature (rrover east 0 3) takes action: hop
+Creature (rrover west 3 7) takes action: infect
+Creature (rrover east 1 7) takes action: hop
+Creature (rrover south 3 6) takes action: right
+____ ____ ____ ____ rr_e ____ ____ rr_e ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ rr_e ____ 
+____ ____ ____ ____ ____ ____ ____ rr_w ____ ____ 
+____ ____ rr_w rr_s ____ ____ rr_w rr_w ____ ____ 
+Round 20
+Creature (rrover west 3 2) takes action: hop
+Creature (rrover west 2 7) takes action: hop
+Creature (rrover east 0 7) takes action: hop
+Creature (rrover east 0 4) takes action: hop
+Creature (rrover south 3 3) takes action: right
+Creature (rrover west 3 7) takes action: right
+Creature (rrover east 1 8) takes action: hop
+Creature (rrover west 3 6) takes action: hop
+____ ____ ____ ____ ____ rr_e ____ ____ rr_e ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ rr_e 
+____ ____ ____ ____ ____ ____ rr_w ____ ____ ____ 
+____ rr_w ____ rr_w ____ rr_w ____ rr_n ____ ____ 
+Round 21
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover west 2 6) takes action: hop
+Creature (rrover east 0 8) takes action: hop
+Creature (rrover east 0 5) takes action: hop
+Creature (rrover north 3 7) takes action: hop
+Creature (rrover east 1 9) takes action: right
+Creature (rrover west 3 5) takes action: hop
+____ ____ ____ ____ ____ ____ rr_e ____ ____ rr_e 
+____ ____ ____ ____ ____ ____ ____ ____ ____ rr_s 
+____ ____ ____ ____ ____ rr_w ____ rr_n ____ ____ 
+rr_w ____ ____ rr_w rr_w ____ ____ ____ ____ ____ 
+Round 22
+Creature (rrover west 3 0) takes action: right
+Creature (rrover west 2 5) takes action: hop
+Creature (rrover east 0 9) takes action: right
+Creature (rrover east 0 6) takes action: hop
+Creature (rrover west 3 3) takes action: hop
+Creature (rrover north 2 7) takes action: hop
+Creature (rrover south 1 9) takes action: hop
+Creature (rrover west 3 4) takes action: hop
+____ ____ ____ ____ ____ ____ ____ rr_e ____ rr_s 
+____ ____ ____ ____ ____ ____ ____ rr_n ____ ____ 
+____ ____ ____ ____ rr_w ____ ____ ____ ____ rr_s 
+rr_n ____ rr_w rr_w ____ ____ ____ ____ ____ ____ 
+Round 23
+Creature (rrover north 3 0) takes action: hop
+Creature (rrover west 2 4) takes action: hop
+Creature (rrover south 0 9) takes action: hop
+Creature (rrover east 0 7) takes action: hop
+Creature (rrover west 3 2) takes action: hop
+Creature (rrover north 1 7) takes action: hop
+Creature (rrover south 2 9) takes action: hop
+Creature (rrover west 3 3) takes action: hop
+____ ____ ____ ____ ____ ____ ____ rr_n rr_e ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ rr_s 
+rr_n ____ ____ rr_w ____ ____ ____ ____ ____ ____ 
+____ rr_w rr_w ____ ____ ____ ____ ____ ____ rr_s 
+Round 24
+Creature (rrover north 2 0) takes action: hop
+Creature (rrover west 2 3) takes action: hop
+Creature (rrover south 1 9) takes action: hop
+Creature (rrover east 0 8) takes action: hop
+Creature (rrover north 0 7) takes action: right
+Creature (rrover south 3 9) takes action: right
+Creature (rrover west 3 2) takes action: right
+____ ____ ____ ____ ____ ____ ____ rr_e ____ rr_e 
+rr_n ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ rr_w ____ ____ ____ ____ ____ ____ rr_s 
+____ rr_w rr_n ____ ____ ____ ____ ____ ____ rr_w 
+Round 25
+Creature (rrover north 1 0) takes action: hop
+Creature (rrover west 2 2) takes action: hop
+Creature (rrover south 2 9) takes action: right
+Creature (rrover east 0 9) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover east 0 7) takes action: hop
+Creature (rrover west 3 9) takes action: hop
+Creature (rrover north 3 2) takes action: hop
+rr_n ____ ____ ____ ____ ____ ____ ____ rr_e rr_s 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ rr_w rr_n ____ ____ ____ ____ ____ ____ rr_w 
+rr_w ____ ____ ____ ____ ____ ____ ____ rr_w ____ 
+Round 26
+Creature (rrover north 0 0) takes action: right
+Creature (rrover west 2 1) takes action: hop
+Creature (rrover west 2 9) takes action: hop
+Creature (rrover south 0 9) takes action: hop
+Creature (rrover west 3 0) takes action: right
+Creature (rrover east 0 8) takes action: hop
+Creature (rrover west 3 8) takes action: hop
+Creature (rrover north 2 2) takes action: hop
+rr_e ____ ____ ____ ____ ____ ____ ____ ____ rr_e 
+____ ____ rr_n ____ ____ ____ ____ ____ ____ rr_s 
+rr_w ____ ____ ____ ____ ____ ____ ____ rr_w ____ 
+rr_n ____ ____ ____ ____ ____ ____ rr_w ____ ____ 
+Round 27
+Creature (rrover east 0 0) takes action: hop
+Creature (rrover west 2 0) takes action: right
+Creature (rrover west 2 8) takes action: hop
+Creature (rrover south 1 9) takes action: hop
+Creature (rrover north 3 0) takes action: right
+Creature (rrover east 0 9) takes action: right
+Creature (rrover west 3 7) takes action: hop
+Creature (rrover north 1 2) takes action: hop
+____ rr_e rr_n ____ ____ ____ ____ ____ ____ rr_s 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_n ____ ____ ____ ____ ____ ____ rr_w ____ rr_s 
+rr_e ____ ____ ____ ____ ____ rr_w ____ ____ ____ 
+Round 28
+Creature (rrover east 0 1) takes action: right
+Creature (rrover north 2 0) takes action: hop
+Creature (rrover west 2 7) takes action: hop
+Creature (rrover south 2 9) takes action: hop
+Creature (rrover east 3 0) takes action: hop
+Creature (rrover south 0 9) takes action: hop
+Creature (rrover west 3 6) takes action: hop
+Creature (rrover north 0 2) takes action: right
+____ rr_s rr_e ____ ____ ____ ____ ____ ____ ____ 
+rr_n ____ ____ ____ ____ ____ ____ ____ ____ rr_s 
+____ ____ ____ ____ ____ ____ rr_w ____ ____ ____ 
+____ rr_e ____ ____ ____ rr_w ____ ____ ____ rr_s 
+Round 29
+Creature (rrover south 0 1) takes action: hop
+Creature (rrover north 1 0) takes action: hop
+Creature (rrover west 2 6) takes action: hop
+Creature (rrover south 3 9) takes action: right
+Creature (rrover south 1 9) takes action: hop
+Creature (rrover west 3 5) takes action: hop
+Creature (rrover east 0 2) takes action: hop
+rr_n ____ ____ rr_e ____ ____ ____ ____ ____ ____ 
+____ rr_s ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ rr_w ____ ____ ____ rr_s 
+____ rr_e ____ ____ rr_w ____ ____ ____ ____ rr_w 
+Round 30
+Creature (rrover south 1 1) takes action: hop
+Creature (rrover north 0 0) takes action: right
+Creature (rrover west 2 5) takes action: hop
+Creature (rrover west 3 9) takes action: hop
+Creature (rrover east 3 1) takes action: hop
+Creature (rrover south 2 9) takes action: hop
+Creature (rrover west 3 4) takes action: hop
+Creature (rrover east 0 3) takes action: hop
+rr_e ____ ____ ____ rr_e ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ rr_s ____ ____ rr_w ____ ____ ____ ____ ____ 
+____ ____ rr_e rr_w ____ ____ ____ ____ rr_w rr_s 
+Round 31
+Creature (rrover south 2 1) takes action: hop
+Creature (rrover east 0 0) takes action: hop
+Creature (rrover west 2 4) takes action: hop
+Creature (rrover west 3 8) takes action: hop
+Creature (rrover east 3 2) takes action: right
+Creature (rrover south 3 9) takes action: right
+Creature (rrover west 3 3) takes action: hop
+Creature (rrover east 0 4) takes action: hop
+____ rr_e ____ ____ ____ rr_e ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ rr_w ____ ____ ____ ____ ____ ____ 
+____ rr_s rr_s rr_w ____ ____ ____ rr_w ____ rr_w 
+Round 32
+Creature (rrover south 3 1) takes action: right
+Creature (rrover east 0 1) takes action: hop
+Creature (rrover west 2 3) takes action: hop
+Creature (rrover west 3 7) takes action: hop
+Creature (rrover south 3 2) takes action: right
+Creature (rrover west 3 9) takes action: hop
+Creature (rrover west 3 3) takes action: hop
+Creature (rrover east 0 5) takes action: hop
+____ ____ rr_e ____ ____ ____ rr_e ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ rr_w ____ ____ ____ ____ ____ ____ ____ 
+____ rr_w rr_w rr_w ____ ____ rr_w ____ rr_w ____ 
+Round 33
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover east 0 2) takes action: hop
+Creature (rrover west 2 2) takes action: hop
+Creature (rrover west 3 6) takes action: hop
+Creature (rrover west 3 2) takes action: hop
+Creature (rrover west 3 8) takes action: hop
+Creature (rrover west 3 3) takes action: hop
+Creature (rrover east 0 6) takes action: hop
+____ ____ ____ rr_e ____ ____ ____ rr_e ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ rr_w ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_w rr_w rr_w ____ ____ rr_w ____ rr_w ____ ____ 
+Round 34
+Creature (rrover west 3 0) takes action: right
+Creature (rrover east 0 3) takes action: hop
+Creature (rrover west 2 1) takes action: hop
+Creature (rrover west 3 5) takes action: hop
+Creature (rrover west 3 7) takes action: hop
+Creature (rrover west 3 2) takes action: right
+Creature (rrover east 0 7) takes action: hop
+____ ____ ____ ____ rr_e ____ ____ ____ rr_e ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_w ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_n rr_w rr_n ____ rr_w ____ rr_w ____ ____ ____ 
+Round 35
+Creature (rrover north 3 0) takes action: right
+Creature (rrover east 0 4) takes action: hop
+Creature (rrover west 2 0) takes action: right
+Creature (rrover west 3 4) takes action: hop
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover west 3 6) takes action: hop
+Creature (rrover north 3 2) takes action: hop
+Creature (rrover east 0 8) takes action: hop
+____ ____ ____ ____ ____ rr_e ____ ____ ____ rr_e 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_n ____ rr_n ____ ____ ____ ____ ____ ____ ____ 
+rr_e rr_w ____ rr_w ____ rr_w ____ ____ ____ ____ 
+Round 36
+Creature (rrover east 3 0) takes action: right
+Creature (rrover east 0 5) takes action: hop
+Creature (rrover north 2 0) takes action: hop
+Creature (rrover west 3 3) takes action: hop
+Creature (rrover west 3 5) takes action: hop
+Creature (rrover north 2 2) takes action: hop
+Creature (rrover east 0 9) takes action: right
+____ ____ ____ ____ ____ ____ rr_e ____ ____ rr_s 
+rr_n ____ rr_n ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_s rr_w rr_w ____ rr_w ____ ____ ____ ____ ____ 
+Round 37
+Creature (rrover south 3 0) takes action: right
+Creature (rrover east 0 6) takes action: hop
+Creature (rrover north 1 0) takes action: hop
+Creature (rrover west 3 2) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover west 3 4) takes action: hop
+Creature (rrover north 1 2) takes action: hop
+Creature (rrover south 0 9) takes action: hop
+rr_n ____ rr_n ____ ____ ____ ____ rr_e ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ rr_s 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_w rr_w rr_n rr_w ____ ____ ____ ____ ____ ____ 
+Round 38
+Creature (rrover west 3 0) takes action: right
+Creature (rrover east 0 7) takes action: hop
+Creature (rrover north 0 0) takes action: right
+Creature (rrover north 3 2) takes action: hop
+Creature (rrover west 3 3) takes action: hop
+Creature (rrover north 0 2) takes action: right
+Creature (rrover south 1 9) takes action: hop
+rr_e ____ rr_e ____ ____ ____ ____ ____ rr_e ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ rr_n ____ ____ ____ ____ ____ ____ rr_s 
+rr_n rr_w rr_w ____ ____ ____ ____ ____ ____ ____ 
+Round 39
+Creature (rrover north 3 0) takes action: hop
+Creature (rrover east 0 8) takes action: hop
+Creature (rrover east 0 0) takes action: hop
+Creature (rrover north 2 2) takes action: hop
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover west 3 2) takes action: hop
+Creature (rrover east 0 2) takes action: hop
+Creature (rrover south 2 9) takes action: hop
+____ rr_e ____ rr_e ____ ____ ____ ____ ____ rr_e 
+____ ____ rr_n ____ ____ ____ ____ ____ ____ ____ 
+rr_n ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_w rr_w ____ ____ ____ ____ ____ ____ ____ rr_s 
+Round 40
+Creature (rrover north 2 0) takes action: hop
+Creature (rrover east 0 9) takes action: right
+Creature (rrover east 0 1) takes action: hop
+Creature (rrover north 1 2) takes action: right
+Creature (rrover west 3 0) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover east 0 3) takes action: hop
+Creature (rrover south 3 9) takes action: right
+____ ____ rr_e ____ rr_e ____ ____ ____ ____ rr_s 
+rr_n ____ rr_e ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_n rr_w ____ ____ ____ ____ ____ ____ ____ rr_w 
+Round 41
+Creature (rrover north 1 0) takes action: hop
+Creature (rrover south 0 9) takes action: hop
+Creature (rrover east 0 2) takes action: hop
+Creature (rrover east 1 2) takes action: hop
+Creature (rrover north 3 0) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover east 0 4) takes action: hop
+Creature (rrover west 3 9) takes action: hop
+rr_n ____ ____ rr_e ____ rr_e ____ ____ ____ ____ 
+____ ____ ____ rr_e ____ ____ ____ ____ ____ rr_s 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_e rr_w ____ ____ ____ ____ ____ ____ rr_w ____ 
+Round 42
+Creature (rrover north 0 0) takes action: right
+Creature (rrover south 1 9) takes action: hop
+Creature (rrover east 0 3) takes action: hop
+Creature (rrover east 1 3) takes action: hop
+Creature (rrover east 3 0) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover east 0 5) takes action: hop
+Creature (rrover west 3 8) takes action: hop
+rr_e ____ ____ ____ rr_e ____ rr_e ____ ____ ____ 
+____ ____ ____ ____ rr_e ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ rr_s 
+rr_s rr_w ____ ____ ____ ____ ____ rr_w ____ ____ 
+Round 43
+Creature (rrover east 0 0) takes action: hop
+Creature (rrover south 2 9) takes action: hop
+Creature (rrover east 0 4) takes action: hop
+Creature (rrover east 1 4) takes action: hop
+Creature (rrover south 3 0) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover east 0 6) takes action: hop
+Creature (rrover west 3 7) takes action: hop
+____ rr_e ____ ____ ____ rr_e ____ rr_e ____ ____ 
+____ ____ ____ ____ ____ rr_e ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_w rr_w ____ ____ ____ ____ rr_w ____ ____ rr_s 
+Round 44
+Creature (rrover east 0 1) takes action: hop
+Creature (rrover south 3 9) takes action: right
+Creature (rrover east 0 5) takes action: hop
+Creature (rrover east 1 5) takes action: hop
+Creature (rrover west 3 0) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover east 0 7) takes action: hop
+Creature (rrover west 3 6) takes action: hop
+____ ____ rr_e ____ ____ ____ rr_e ____ rr_e ____ 
+____ ____ ____ ____ ____ ____ rr_e ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_n rr_w ____ ____ ____ rr_w ____ ____ ____ rr_w 
+Round 45
+Creature (rrover east 0 2) takes action: hop
+Creature (rrover west 3 9) takes action: hop
+Creature (rrover east 0 6) takes action: hop
+Creature (rrover east 1 6) takes action: hop
+Creature (rrover north 3 0) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover east 0 8) takes action: hop
+Creature (rrover west 3 5) takes action: hop
+____ ____ ____ rr_e ____ ____ ____ rr_e ____ rr_e 
+____ ____ ____ ____ ____ ____ ____ rr_e ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_e rr_w ____ ____ rr_w ____ ____ ____ rr_w ____ 
+Round 46
+Creature (rrover east 0 3) takes action: hop
+Creature (rrover west 3 8) takes action: hop
+Creature (rrover east 0 7) takes action: hop
+Creature (rrover east 1 7) takes action: hop
+Creature (rrover east 3 0) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover east 0 9) takes action: right
+Creature (rrover west 3 4) takes action: hop
+____ ____ ____ ____ rr_e ____ ____ ____ rr_e rr_s 
+____ ____ ____ ____ ____ ____ ____ ____ rr_e ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_s rr_w ____ rr_w ____ ____ ____ rr_w ____ ____ 
+Round 47
+Creature (rrover east 0 4) takes action: hop
+Creature (rrover west 3 7) takes action: hop
+Creature (rrover east 0 8) takes action: right
+Creature (rrover east 1 8) takes action: hop
+Creature (rrover south 3 0) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover south 0 9) takes action: right
+Creature (rrover west 3 3) takes action: hop
+____ ____ ____ ____ ____ rr_e ____ ____ rr_s rr_w 
+____ ____ ____ ____ ____ ____ ____ ____ ____ rr_e 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_w rr_w rr_w ____ ____ ____ rr_w ____ ____ ____ 
+Round 48
+Creature (rrover east 0 5) takes action: hop
+Creature (rrover west 3 6) takes action: hop
+Creature (rrover south 0 8) takes action: hop
+Creature (rrover east 1 9) takes action: right
+Creature (rrover west 3 0) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover west 0 9) takes action: hop
+Creature (rrover west 3 2) takes action: right
+____ ____ ____ ____ ____ ____ rr_e ____ rr_w ____ 
+____ ____ ____ ____ ____ ____ ____ ____ rr_s rr_s 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_n rr_w rr_n ____ ____ rr_w ____ ____ ____ ____ 
+Round 49
+Creature (rrover east 0 6) takes action: hop
+Creature (rrover west 3 5) takes action: hop
+Creature (rrover south 1 8) takes action: hop
+Creature (rrover south 1 9) takes action: hop
+Creature (rrover north 3 0) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover west 0 8) takes action: hop
+Creature (rrover north 3 2) takes action: hop
+____ ____ ____ ____ ____ ____ ____ rr_e rr_w ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+____ ____ rr_n ____ ____ ____ ____ ____ rr_s rr_s 
+rr_e rr_w ____ ____ rr_w ____ ____ ____ ____ ____ 
+Round 50
+Creature (rrover east 0 7) takes action: right
+Creature (rrover west 3 4) takes action: hop
+Creature (rrover south 2 8) takes action: hop
+Creature (rrover south 2 9) takes action: hop
+Creature (rrover east 3 0) takes action: right
+Creature (rrover west 3 1) takes action: hop
+Creature (rrover west 0 8) takes action: hop
+Creature (rrover north 2 2) takes action: hop
+____ ____ ____ ____ ____ ____ ____ rr_s rr_w ____ 
+____ ____ rr_n ____ ____ ____ ____ ____ ____ ____ 
+____ ____ ____ ____ ____ ____ ____ ____ ____ ____ 
+rr_s rr_w ____ rr_w ____ ____ ____ ____ rr_s rr_s 

@@ -83,7 +83,7 @@ UnknownTerrainException::UnknownTerrainException(const point_t &p, char terrain)
     this->errStr[0] = "Error: Terrain square (<CHAR> <R> <C>) is invalid!";
     this->errStr[++errNum] = terrain;
     std::stringstream ss;
-    ss << p.r << " " << p.c;
+    ss << p.c << " " << p.r;
     ss >> this->errStr[++errNum] >> this->errStr[++errNum];
     this->make();
 }

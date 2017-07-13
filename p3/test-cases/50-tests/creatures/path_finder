@@ -1,0 +1,8 @@
+ifempty 4
+left
+go 1
+hop
+go 1
+
+The path_finder is more intelligent than the hop. If the square it faces is
+not empty, it turns left. Otherwise, it moves forward.

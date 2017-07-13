@@ -1,0 +1,26 @@
+Initial state
+fo_n ____ fo_n 
+et_n ____ ft_n 
+____ ____ ____ 
+Round 1
+Creature (etest north 1 0) takes action:
+Instruction 1: infect
+et_n ____ fo_n 
+et_n ____ ft_n 
+____ ____ ____ 
+Creature (ftest north 1 2) takes action:
+Instruction 1: ifenemy 4
+Instruction 2: left
+et_n ____ fo_n 
+et_n ____ ft_w 
+____ ____ ____ 
+Creature (etest north 0 0) takes action:
+Instruction 1: infect
+et_n ____ fo_n 
+et_n ____ ft_w 
+____ ____ ____ 
+Creature (food north 0 2) takes action:
+Instruction 1: left
+et_n ____ fo_w 
+et_n ____ ft_w 
+____ ____ ____ 

@@ -1,0 +1,15 @@
+5
+16
+FFFHLFLFLFFPLHHF
+PLPPFHPPLPFFPHLF
+FPPHPLHPPPHPLLLL
+PLHPHPPPPLLHFPLF
+FHPFLFLLHPPPHLHF
+landmine north 0 2 f a
+alt_rover north 0 9 a
+alt_rover east 1 2 f a
+rrover west 3 8 
+hop north 2 8 f a
+hop north 3 0 f a
+lrover west 1 13 f a
+hop south 0 15 a

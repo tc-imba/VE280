@@ -1,0 +1,12 @@
+4
+19
+FPPHPFPFFLFHHHHHFLL
+HFFFFHFHHFFHFFFPLPH
+HLLLFLFHLPPFHLFLHHF
+PPFFFHLLHLPHHPPHLPP
+food north 1 8 
+food north 0 16 a
+food west 3 14 a
+lrover north 0 3 f a
+lrover east 2 0 f
+hop east 2 7 f a

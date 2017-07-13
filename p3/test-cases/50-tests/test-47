@@ -1,0 +1,11 @@
+3
+8
+LHHLPLPF
+PHFHHPFH
+PHFLFFLL
+alt_rover east 2 1 f a
+landmine west 2 7 f a
+rrover south 0 1 a
+rrover south 2 4 
+rrover north 0 6 f a
+alt_rover south 1 0 f a

@@ -1,0 +1,9 @@
+3
+3
+FPF
+PPP
+PPP
+etest north 1 0 a
+ftest north 1 2 a
+food north 0 0
+food north 0 2

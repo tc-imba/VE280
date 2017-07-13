@@ -1,0 +1,35 @@
+20
+9
+LFFLFLPFF
+HLHFHHLHH
+FFHLHLLFF
+PPFLHFPLF
+FLFFPLPPL
+LFHLFPPHH
+LFHPFLHPF
+FPPFPPPHF
+HFFHLPPFF
+HFHPLFLHP
+FLPHLLPFP
+HHFHHFPHL
+FLFLHFFLP
+LFFPPLLPF
+LHLHHFFFF
+FFPFHLLLL
+PLFPHHHLP
+HFHFPHFHP
+LFHPLHHPF
+HHHPLPLFP
+hop east 10 5 f 
+lrover south 9 2 
+rrover east 6 4 f
+rrover south 0 8 a
+rrover east 3 3 f a
+food south 10 8 f a
+landmine west 11 1 f a
+food west 17 6 f
+alt_rover west 7 3 f a
+lrover west 18 7 f
+lrover north 0 7 
+lrover north 6 8 
+rrover west 12 0 f

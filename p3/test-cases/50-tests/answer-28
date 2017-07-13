@@ -1,0 +1,65 @@
+Initial state
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+ct_e ____ ____ ____ 
+____ ____ ____ ____ 
+Round 1
+Creature (ctest east 2 0) takes action: hop
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ct_e ____ ____ 
+____ ____ ____ ____ 
+Round 2
+Creature (ctest east 2 1) takes action: hop
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ct_e ____ 
+____ ____ ____ ____ 
+Round 3
+Creature (ctest east 2 2) takes action: hop
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ct_e 
+____ ____ ____ ____ 
+Round 4
+Creature (ctest east 2 3) takes action: left
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ct_n 
+____ ____ ____ ____ 
+Round 5
+Creature (ctest north 2 3) takes action: hop
+____ ____ ____ ____ 
+____ ____ ____ ct_n 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 6
+Creature (ctest north 1 3) takes action: hop
+____ ____ ____ ct_n 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 7
+Creature (ctest north 0 3) takes action: left
+____ ____ ____ ct_w 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 8
+Creature (ctest west 0 3) takes action: hop
+____ ____ ct_w ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 9
+Creature (ctest west 0 2) takes action: hop
+____ ct_w ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+Round 10
+Creature (ctest west 0 1) takes action: hop
+ct_w ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 
+____ ____ ____ ____ 

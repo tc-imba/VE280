@@ -1,0 +1,14 @@
+4
+10
+FPHHFFFFPL
+LLLLLLPHHP
+LPLFPHFPLL
+FHFHLHPFFL
+flytrap south 3 1 f
+rrover south 1 5 f 
+flytrap east 0 3 f a
+alt_rover west 0 8 f a
+rrover north 3 0 a
+hop south 0 9 f a
+alt_rover south 1 2 f
+hop south 2 6 f

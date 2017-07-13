@@ -1,0 +1,57 @@
+go 2
+go 3
+go 4
+go 5
+go 6
+go 7
+go 8
+go 9
+go 10
+go 11
+go 12
+go 13
+go 14
+go 15
+go 16
+go 17
+go 18
+go 19
+go 20
+go 21
+go 22
+go 23
+go 24
+go 25
+go 26
+go 27
+go 28
+go 29
+go 30
+go 31
+go 32
+go 33
+go 34
+go 35
+go 36
+go 37
+go 38
+go 39
+go 40
+go 41
+go 42
+go 43
+go 44
+go 45
+go 46
+go 47
+go 48
+go 49
+go 50
+hop
+go 1
+
+
+The Land Mine turns until it is not facing a wall and then
+just infects. It's lazy -- taking no risks and expending no
+energy. The existence of Food does not favor the LandMine
+since it will never move to find the food.

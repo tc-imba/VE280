@@ -1,0 +1,59 @@
+Initial state
+____ dt_n ____ 
+fo_n dt_n fo_n 
+____ ____ ____ 
+Round 1
+Creature (dtest north 1 1) takes action:
+Instruction 1: ifsame 4
+Instruction 2: left
+____ dt_n ____ 
+fo_n dt_w fo_n 
+____ ____ ____ 
+Creature (food north 1 0) takes action:
+Instruction 1: left
+____ dt_n ____ 
+fo_w dt_w fo_n 
+____ ____ ____ 
+Creature (food north 1 2) takes action:
+Instruction 1: left
+____ dt_n ____ 
+fo_w dt_w fo_w 
+____ ____ ____ 
+Creature (dtest north 0 1) takes action:
+Instruction 1: ifsame 4
+Instruction 2: left
+____ dt_w ____ 
+fo_w dt_w fo_w 
+____ ____ ____ 
+Round 2
+Creature (dtest west 1 1) takes action:
+Instruction 3: go 5
+Instruction 5: ifenemy 7
+Instruction 6: go 8
+Instruction 8: ifempty 10
+Instruction 9: go 2
+Instruction 2: left
+____ dt_w ____ 
+fo_w dt_s fo_w 
+____ ____ ____ 
+Creature (food west 1 0) takes action:
+Instruction 2: go 1
+Instruction 1: left
+____ dt_w ____ 
+fo_s dt_s fo_w 
+____ ____ ____ 
+Creature (food west 1 2) takes action:
+Instruction 2: go 1
+Instruction 1: left
+____ dt_w ____ 
+fo_s dt_s fo_s 
+____ ____ ____ 
+Creature (dtest west 0 1) takes action:
+Instruction 3: go 5
+Instruction 5: ifenemy 7
+Instruction 6: go 8
+Instruction 8: ifempty 10
+Instruction 10: infect
+____ dt_w ____ 
+fo_s dt_s fo_s 
+____ ____ ____ 
