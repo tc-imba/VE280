@@ -2,7 +2,36 @@
 
 ## Projects
 
-There are five projects in FA2016, with the related files, the solution and the test-cases
+There are five projects in each semester, with the related files, the solution and the (pre)test-cases.
+
+The whole repository is organized as a CLion Project.
+
+### Project 1
+
++ [Integers! (version 1)](projects/p1/integers-v1) SU2016, SU2019
++ [Integers! (version 2)](projects/p1/integers-v2) SU2017, FA2019
++ [Hangman](projects/p1/hangman) SU2018
+
+### Project 2
+
++ [Recursion (version 1)](projects/p2/recursion-v1) SU2016, SU2018, FA2019
++ [Recursion (version 2)](projects/p3/recursion-v2) SU2017, SU2019
+
+### Project 3
+
++ [Simple World](projects/p3/simple-world) SU2016, SU2019, FA2019
++ [Simple World (hard)](projects/p3/hard-world) SU2017, SU2018
+
+### Project 4
+
++ [BlackJack](projects/p4/blackjack) SU2016, SU2017, SU2018, FA2019
++ [Quarto](projects/p4/quarto) SU2019
+
+### Project 5
+
++ [List, Stack and Queue](projects/p5/containers) SU2016, SU2017, SU2018, SU2019, FA2019
+
+## Usage
 
 Run `test.sh <source_path>` in each project to test your code (on Linux).
 

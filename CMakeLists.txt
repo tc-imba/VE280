@@ -3,13 +3,18 @@ project(VE280)
 
 enable_testing()
 
-add_subdirectory(project-2016/p1)
-add_subdirectory(project-2017/p1)
-add_subdirectory(project-2017/p2)
-add_subdirectory(project-2017/p3)
-#add_subdirectory(project-2016/p2)
-#add_subdirectory(project-2016/p3)
-#add_subdirectory(project-2016/p4)
-#add_subdirectory(project-2016/p5)
+add_subdirectory(projects/p1/integers-v1)
+add_subdirectory(projects/p1/integers-v2)
+add_subdirectory(projects/p1/hangman)
 
+add_subdirectory(projects/p2/recursion-v1)
+add_subdirectory(projects/p2/recursion-v2)
+
+add_subdirectory(projects/p3/simple-world)
+add_subdirectory(projects/p3/hard-world)
+
+add_subdirectory(projects/p4/blackjack)
+add_subdirectory(projects/p4/quarto)
+
+add_subdirectory(projects/p5/containers)
 
