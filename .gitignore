@@ -360,7 +360,7 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 
-!projects/*/Makefile
+!projects/**/*/Makefile
 test.temp
 
 Ve280-PADS-master
