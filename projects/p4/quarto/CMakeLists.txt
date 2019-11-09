@@ -4,4 +4,4 @@ project(p4-quarto)
 
 include_directories(problem)
 
-add_executable(p4-quarto solution/exceptions.cpp solution/piece.cpp solution/pool.cpp solution/square.cpp solution/quarto.cpp solution/board.cpp solution/game.cpp solution/player.cpp)
+add_executable(p4-quarto answer/exceptions.cpp answer/piece.cpp answer/pool.cpp answer/square.cpp answer/quarto.cpp answer/board.cpp answer/game.cpp answer/player.cpp)
