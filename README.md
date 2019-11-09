@@ -4,7 +4,7 @@
 
 There are five projects in each semester, with the related files, the solution and the (pre)test-cases.
 
-The whole repository is organized as a CLion Project.
+The whole repository is organized as a CMake Project.
 
 ### Project 1
 
