@@ -8,14 +8,15 @@ The whole repository is organized as a CMake Project.
 
 ### Project 1
 
-+ [Integers! (version 1)](projects/p1/integers-v1) SU2016, SU2019
++ [Integers! (version 1)](projects/p1/integers-v1) SU2016, SU2019, SU2020
 + [Integers! (version 2)](projects/p1/integers-v2) SU2017, FA2019
 + [Hangman](projects/p1/hangman) SU2018
 
 ### Project 2
 
 + [Recursion (version 1)](projects/p2/recursion-v1) SU2016, SU2018, FA2019
-+ [Recursion (version 2)](projects/p3/recursion-v2) SU2017, SU2019
++ [Recursion (version 2)](projects/p2/recursion-v2) SU2017, SU2019
++ [Simple Twitter](projects/p2/simple-twitter) SU2020
 
 ### Project 3
 

@@ -9,6 +9,7 @@ add_subdirectory(projects/p1/hangman)
 
 add_subdirectory(projects/p2/recursion-v1)
 add_subdirectory(projects/p2/recursion-v2)
+add_subdirectory(projects/p2/simple-twitter)
 
 add_subdirectory(projects/p3/simple-world)
 add_subdirectory(projects/p3/hard-world)

@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 3.10)
+project(p2-simple-twitter)
+
+set(CMAKE_CXX_STANDARD 17)
+
+#set(CMAKE_CXX_FLAGS_DEBUG "-DDEBUG")
+
+add_executable(p2-simple-twitter answer/main.cpp answer/simulation.cpp)
+target_link_libraries(p2-simple-twitter stdc++fs)
