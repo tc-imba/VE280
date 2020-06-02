@@ -175,6 +175,7 @@ void Server::initUsers(const std::string &fileName) {
 
     std::string userName;
     while (std::getline(fin, userName)) {
+        if (userName.empty()) continue;
         auto user = std::make_unique<User>(userName);
         users.emplace(userName, std::move(user));
     }
@@ -198,6 +199,8 @@ void Server::readLog(const std::string &fileName) {
     std::string line;
     std::istringstream iss;
     while (std::getline(fin, line)) {
+        if (line.empty()) continue;
+
         iss.clear();
         iss.str(line);
         std::string u1, op, u2, text;
@@ -287,6 +290,9 @@ void Server::opFollow(const std::string &userName1, const std::string &userName2
     auto u1 = getUser(userName1);
     auto u2 = getUser(userName2);
 
+    if (u1 == u2) {
+        throw FollowException(userName1, userName2);
+    }
     if (u1->getFollowingCount() >= MAX_FOLLOWING) {
         throw TooManyFollowingsException(userName1);
     }
@@ -366,6 +372,7 @@ void Server::opTrending(std::size_t n) {
         return a->getContent() < b->getContent();
     });
     for (auto i = 0; i < std::min(n, orderedTags.size()); i++) {
+        if (orderedTags[i]->getScore() == 0) break;
         std::cout << i + 1 << " " << *orderedTags[i] << std::endl;
     }
 }
