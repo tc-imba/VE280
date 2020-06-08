@@ -46,11 +46,19 @@ enum Error_t {
 struct Exception_t: public exception{
     Error_t error;
     string error_info;
+    string error_info_verbose;
     unsigned int error_int;
 
     Exception_t(Error_t err, const string& info, unsigned int error_int = 0){
         this->error = err;
         this->error_info = info;
+        this->error_int = error_int;
+    }
+
+    Exception_t(Error_t err, const string& info, const string& info_verbose, unsigned int error_int = 0){
+        this->error = err;
+        this->error_info = info;
+        this->error_info_verbose = info_verbose;
         this->error_int = error_int;
     }
 };

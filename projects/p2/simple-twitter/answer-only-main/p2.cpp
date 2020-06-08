@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
         username_file.close();
 
         // read each user's info and posts
-        for (auto i = 0; i < server.num_users; i++) {
+        for (unsigned int i = 0; i < server.num_users; i++) {
             auto &user = server.users[i];
             auto user_path = users_directory + "/" + user.username;
             auto user_info_filename = user_path + "/user_info";
@@ -50,14 +50,16 @@ int main(int argc, char *argv[]) {
             getline(user_info_file, temp);
             user.num_posts = strtoul(temp.c_str(), nullptr, 10);
             if (user.num_posts > MAX_POSTS) {
-                throw Exception_t(CAPACITY_OVERFLOW, "posts", MAX_POSTS);
+                throw Exception_t(CAPACITY_OVERFLOW, "posts",
+                                  "posts for user " + user.username, MAX_POSTS);
             }
             getline(user_info_file, temp);
             user.num_following = strtoul(temp.c_str(), nullptr, 10);
             if (user.num_following > MAX_FOLLOWING) {
-                throw Exception_t(CAPACITY_OVERFLOW, "followings for user " + user.username, MAX_FOLLOWING);
+                throw Exception_t(CAPACITY_OVERFLOW, "followings",
+                                  "followings for user " + user.username, MAX_FOLLOWING);
             }
-            for (auto j = 0; j < user.num_following; j++) {
+            for (unsigned int j = 0; j < user.num_following; j++) {
                 getline(user_info_file, temp);
                 user.following[j] = find_if(server.users, server.users + server.num_users,
                                             [&](const auto &user) { return user.username == temp; });
@@ -73,16 +75,17 @@ int main(int argc, char *argv[]) {
             getline(user_info_file, temp);
             user.num_followers = strtoul(temp.c_str(), nullptr, 10);
             if (user.num_followers > MAX_FOLLOWERS) {
-                throw Exception_t(CAPACITY_OVERFLOW, "followers for user " + user.username, MAX_FOLLOWERS);
+                throw Exception_t(CAPACITY_OVERFLOW, "followers",
+                                  "followers for user " + user.username, MAX_FOLLOWERS);
             }
-            for (auto j = 0; j < user.num_followers; j++) {
+            for (unsigned int j = 0; j < user.num_followers; j++) {
                 getline(user_info_file, temp);
                 user.followers[j] = find_if(server.users, server.users + server.num_users,
                                             [&](const auto &user) { return user.username == temp; });
             }
             user_info_file.close();
             // read posts
-            for (auto j = 0; j < user.num_posts; j++) {
+            for (unsigned int j = 0; j < user.num_posts; j++) {
                 auto &post = user.posts[j];
                 post.owner = &user;
                 auto post_filename = user_path + "/posts/" + to_string(j + 1);
@@ -100,7 +103,8 @@ int main(int argc, char *argv[]) {
                             continue;
                         }
                         if (post.num_tags >= MAX_TAGS) {
-                            throw Exception_t(CAPACITY_OVERFLOW, "tags for post " + post.title, MAX_TAGS);
+                            throw Exception_t(CAPACITY_OVERFLOW, "tags",
+                                              "tags for post " + post.title, MAX_TAGS);
                         }
                         post.tags[post.num_tags++] = tag_content;
                     } else {
@@ -110,9 +114,10 @@ int main(int argc, char *argv[]) {
                 getline(post_file, temp);
                 post.num_likes = strtoul(temp.c_str(), nullptr, 10);
                 if (post.num_likes > MAX_LIKES) {
-                    throw Exception_t(CAPACITY_OVERFLOW, "likes for post " + post.title, MAX_LIKES);
+                    throw Exception_t(CAPACITY_OVERFLOW, "likes",
+                                      "likes for post " + post.title, MAX_LIKES);
                 }
-                for (auto k = 0; k < post.num_likes; k++) {
+                for (unsigned int k = 0; k < post.num_likes; k++) {
                     getline(post_file, temp);
                     post.like_users[k] = find_if(server.users, server.users + server.num_users,
                                                  [&](const auto &user) { return user.username == temp; });
@@ -120,9 +125,10 @@ int main(int argc, char *argv[]) {
                 getline(post_file, temp);
                 post.num_comments = strtoul(temp.c_str(), nullptr, 10);
                 if (post.num_comments > MAX_COMMENTS) {
-                    throw Exception_t(CAPACITY_OVERFLOW, "comments for post " + post.title, MAX_COMMENTS);
+                    throw Exception_t(CAPACITY_OVERFLOW, "comments",
+                                      "comments for post " + post.title, MAX_COMMENTS);
                 }
-                for (auto k = 0; k < post.num_comments; k++) {
+                for (unsigned int k = 0; k < post.num_comments; k++) {
                     getline(post_file, temp);
                     post.comments[k].user = find_if(server.users, server.users + server.num_users,
                                                     [&](const auto &user) { return user.username == temp; });
@@ -155,11 +161,11 @@ int main(int argc, char *argv[]) {
                     unsigned int n;
                     iss >> n;
                     server.num_tags = 0;
-                    for (auto i = 0; i < server.num_users; i++) {
+                    for (unsigned int i = 0; i < server.num_users; i++) {
                         auto &user = server.users[i];
-                        for (auto j = 0; j < user.num_posts; j++) {
+                        for (unsigned int j = 0; j < user.num_posts; j++) {
                             auto &post = user.posts[j];
-                            for (auto k = 0; k < post.num_tags; k++) {
+                            for (unsigned int k = 0; k < post.num_tags; k++) {
                                 auto &tag_content = post.tags[k];
                                 auto tag = find_if(server.tags, server.tags + server.num_tags,
                                                    [&](const auto &t) { return t.tag_content == tag_content; });
@@ -176,7 +182,7 @@ int main(int argc, char *argv[]) {
                         if (a.tag_score != b.tag_score) return a.tag_score > b.tag_score;
                         return a.tag_content < b.tag_content;
                     });
-                    for (auto i = 0; i < min(n, server.num_tags); i++) {
+                    for (unsigned int i = 0; i < min(n, server.num_tags); i++) {
                         cout << i + 1 << " " << server.tags[i].tag_content << ": " << server.tags[i].tag_score << endl;
                     }
                     continue;
@@ -217,12 +223,12 @@ int main(int argc, char *argv[]) {
                     continue;
                 }
                 if (op == "refresh") {
-                    for (auto i = 0; i < user1->num_posts; i++) {
+                    for (unsigned int i = 0; i < user1->num_posts; i++) {
                         printPost(user1->posts[i]);
                     }
-                    for (auto j = 0; j < user1->num_following; j++) {
+                    for (unsigned int j = 0; j < user1->num_following; j++) {
                         auto user2 = user1->following[j];
-                        for (auto i = 0; i < user2->num_posts; i++) {
+                        for (unsigned int i = 0; i < user2->num_posts; i++) {
                             printPost(user2->posts[i]);
                         }
                     }
@@ -351,7 +357,7 @@ int main(int argc, char *argv[]) {
         } else if (e.error == FILE_MISSING) {
             cout << "Error: Cannot open file " << e.error_info << "!" << endl;
         } else if (e.error == CAPACITY_OVERFLOW) {
-            cout << "Error: Too many " << e.error_info << "!\n";
+            cout << "Error: Too many " << (e.error_info_verbose.empty() ? e.error_info : e.error_info_verbose) << "!\n";
             cout << "Maximal number of " << e.error_info << " is " << e.error_int << "." << endl;
         } else {
             assert(0);
