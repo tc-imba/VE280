@@ -6,4 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 #set(CMAKE_CXX_FLAGS_DEBUG "-DDEBUG")
 
 add_executable(p2-simple-twitter answer/main.cpp answer/simulation.cpp)
+add_executable(p2-simple-twitter-only-main answer-only-main/main.cpp answer-only-main/simulation.cpp)
+
 target_link_libraries(p2-simple-twitter stdc++fs)
