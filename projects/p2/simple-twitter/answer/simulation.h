@@ -151,7 +151,7 @@ public:
         if (type == NOT_EXIST) {
             info += "? does not have post #?." % user2 % postId;
         } else {
-            info += "? has already like post #? of ?." % user1 % postId % user2;
+            info += "? has already liked post #? of ?." % user1 % postId % user2;
         }
     }
 };

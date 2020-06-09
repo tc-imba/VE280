@@ -64,12 +64,12 @@ int main(int argc, char *argv[]) {
                 user.following[j] = find_if(server.users, server.users + server.num_users,
                                             [&](const auto &user) { return user.username == temp; });
                 // this find_if is equivalent to
-                // User *find() {
-                //     for (int i=0;i<server.num_users;i++) {
+                // User *find(Server_t &server, const string &temp) {
+                //     for (int i = 0; i < server.num_users; i++) {
                 //         if (server.users[i].username == temp)
-                //             return server.users+i;
+                //             return server.users + i;
                 //     }
-                //     return nullptr;
+                //     return server.users + server.num_users;
                 // }
             }
             getline(user_info_file, temp);
@@ -271,7 +271,7 @@ int main(int argc, char *argv[]) {
                         if (like != post.like_users + post.num_likes) {
                             oss << "Error: " << u1 << " cannot " << op << " post #" << (post_id + 1)
                                 << " of " << u2 << "!\n";
-                            oss << u1 << " has already like post #" << (post_id + 1) << " of " << u2 << ".";
+                            oss << u1 << " has already liked post #" << (post_id + 1) << " of " << u2 << ".";
                             throw Exception_t(INVALID_LOG, oss.str());
                         }
                         assert(post.num_likes < MAX_LIKES);
