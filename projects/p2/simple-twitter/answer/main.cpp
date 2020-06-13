@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]) {
 #ifdef DEBUG
-    std::ofstream fout("test.out");
+    std::ofstream fout("test.out1");
     std::streambuf* coutBuf = std::cout.rdbuf();
     std::cout.rdbuf(fout.rdbuf());
 #endif
@@ -21,6 +21,6 @@ int main(int argc, char *argv[]) {
 #ifdef DEBUG
     std::cout.rdbuf(coutBuf);
     fout.close();
-    return 0;
 #endif
+    return 0;
 }

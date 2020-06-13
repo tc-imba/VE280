@@ -364,4 +364,4 @@ CTestTestfile.cmake
 test.temp
 
 Ve280-PADS-master
-cmake-build-debug
+cmake-build-*

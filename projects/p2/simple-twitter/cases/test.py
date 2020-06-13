@@ -2,6 +2,7 @@ import click
 import subprocess
 import os
 import difflib
+import json
 
 args_dir = os.path.join(os.getcwd(), 'args')
 answer_dir = os.path.join(os.getcwd(), 'ans')
@@ -16,19 +17,14 @@ def print_diff(diff, max_lines=10):
         print(diff[i])
 
 
-def run_test_case(program, filename, is_answer):
-    args_file = os.path.join(args_dir, filename)
-    answer_file = os.path.join(answer_dir, filename)
-    args = [program]
-    with open(args_file) as f:
-        line = f.readline().strip()
-        if line:
-            args += line.split(' ')
+def run_test_case(program, name, args, is_answer):
+    answer_file = os.path.join(answer_dir, name)
+    args = [program] + args
 
     if is_answer:
         with open(answer_file, 'w') as f:
             subprocess.run(args, stdout=f)
-        print('%s: generated' % filename)
+        print('%s: generated' % name)
         return True
     else:
         with open(answer_file, 'rb') as f:
@@ -42,12 +38,12 @@ def run_test_case(program, filename, is_answer):
 
         if len(diff):
             print('')
-            print('%s: error' % filename)
+            print('%s: error' % name)
             print_diff(list(diff))
             print('')
             return False
         else:
-            print('%s: pass' % filename)
+            print('%s: pass' % name)
             return True
 
 
@@ -58,8 +54,9 @@ def main(answer, program):
     # print(answer)
     # print(program)
 
-    for f in os.listdir(args_dir):
-        run_test_case(program, f, answer)
+    cases = json.load(open('args.json'))
+    for name, args in cases.items():
+        run_test_case(program, name, args, answer)
 
 
 if __name__ == '__main__':

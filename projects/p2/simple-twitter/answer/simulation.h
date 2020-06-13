@@ -190,7 +190,7 @@ public:
         if (type == NOT_EXIST) {
             info += "? does not have post #?." % user2 % postId;
         } else if (type == NOT_DONE) {
-            info += "Post# ? does not have comment #?."_f % postId % commentId;
+            info += "Post #? does not have comment #?."_f % postId % commentId;
         } else {
             info += "? is not the owner of comment #?."_f % user1 % commentId;
         }

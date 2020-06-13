@@ -152,7 +152,7 @@ public:
 
     Server(Server &&) = delete;
 
-    ~Server() = default;
+    ~Server();
 
     static Server &getInstance();
 
@@ -261,11 +261,12 @@ class Post {
 private:
     std::vector<std::unique_ptr<Comment> > comments;
     std::set<User *> likes;
-    std::vector<Tag *> tags;
 
     User *owner;
     std::string title;
     std::string text;
+    std::vector<Tag *> tags;
+
 public:
     Post(User *owner, std::string title, std::string text, std::vector<Tag *> &&tags);
 

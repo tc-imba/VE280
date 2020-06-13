@@ -1,0 +1,112 @@
+{
+  "comment-not-post": [
+    "username/processing-errors",
+    "logfile/comment-not-post"
+  ],
+  "delete-not-post": [
+    "username/processing-errors",
+    "logfile/delete-not-post"
+  ],
+  "invalid-arg-no-arg": [],
+  "invalid-arg-one-arg": [
+    "username/empty"
+  ],
+  "invalid-arg-too-many": [
+    "username/empty",
+    "logfile/empty",
+    "username/empty",
+    "logfile/empty"
+  ],
+  "like-already": [
+    "username/processing-errors",
+    "logfile/like-already"
+  ],
+  "like-not-post": [
+    "username/processing-errors",
+    "logfile/like-not-post"
+  ],
+  "missing-file-logfile": [
+    "username/empty",
+    "logfile/missing"
+  ],
+  "missing-file-post": [
+    "username/missing-file-userinfo",
+    "logfile/empty"
+  ],
+  "missing-file-userinfo": [
+    "username/missing-file-userinfo",
+    "logfile/empty"
+  ],
+  "missing-file-username": [
+    "username/missing",
+    "logfile/empty"
+  ],
+  "simple": [
+    "username/simple",
+    "logfile/simple"
+  ],
+  "too-many-comments": [
+    "username/too-many-comments",
+    "logfile/empty"
+  ],
+  "too-many-followers": [
+    "username/empty",
+    "logfile/empty"
+  ],
+  "too-many-followings": [
+    "username/empty",
+    "logfile/empty"
+  ],
+  "too-many-likes": [
+    "username/empty",
+    "logfile/empty"
+  ],
+  "too-many-posts": [
+    "username/too-many-posts",
+    "logfile/empty"
+  ],
+  "too-many-tags": [
+    "username/too-many-tags",
+    "logfile/empty"
+  ],
+  "too-many-users": [
+    "username/too-many-users",
+    "logfile/empty"
+  ],
+  "uncomment-not-comment": [
+    "username/processing-errors",
+    "logfile/uncomment-not-comment"
+  ],
+  "uncomment-not-owner": [
+    "username/processing-errors",
+    "logfile/uncomment-not-owner"
+  ],
+  "uncomment-not-post": [
+    "username/processing-errors",
+    "logfile/uncomment-not-post"
+  ],
+  "unlike-not-liked": [
+    "username/processing-errors",
+    "logfile/unlike-not-liked"
+  ],
+  "unlike-not-post": [
+    "username/processing-errors",
+    "logfile/unlike-not-post"
+  ],
+  "complex-1": [
+    "username/generated",
+    "logfile/generated-100"
+  ],
+  "complex-2": [
+    "username/generated",
+    "logfile/generated-200"
+  ],
+  "complex-3": [
+    "username/generated",
+    "logfile/generated-500"
+  ],
+  "complex-4": [
+    "username/generated",
+    "logfile/generated-1000"
+  ]
+}

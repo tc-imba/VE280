@@ -12,6 +12,12 @@
 #include <cassert>
 
 int main(int argc, char *argv[]) {
+#ifdef DEBUG
+    std::ofstream fout("test.out2");
+    std::streambuf* coutBuf = std::cout.rdbuf();
+    std::cout.rdbuf(fout.rdbuf());
+#endif
+
     static Server_t server;
 
     try {
@@ -195,6 +201,7 @@ int main(int argc, char *argv[]) {
                 if (op == "post") {
                     assert(user1->num_posts < MAX_POSTS);
                     auto &post = user1->posts[user1->num_posts++];
+                    post.num_tags = post.num_likes = post.num_comments = 0;
                     post.owner = user1;
                     getline(log_file, post.title);
                     while (getline(log_file, post.text)) {
@@ -363,5 +370,10 @@ int main(int argc, char *argv[]) {
             assert(0);
         }
     }
+
+#ifdef DEBUG
+    std::cout.rdbuf(coutBuf);
+    fout.close();
+#endif
     return 0;
 }

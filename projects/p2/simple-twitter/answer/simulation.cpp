@@ -29,6 +29,12 @@ const std::unordered_map<std::string, Operation> Server::operations = {
         {"trending",  Operation::TRENDING},
 };
 
+Server::~Server() {
+    // we must clear users first because there exists Tag references in User
+    users.clear();
+    tags.clear();
+}
+
 Server &Server::getInstance() {
     if (instance == nullptr) {
         instance = std::unique_ptr<Server>(new Server);
@@ -68,7 +74,7 @@ void Server::initUser(User *user, const std::filesystem::path &userPath) {
     if (numPosts > MAX_POSTS) {
         throw TooManyPostsException(user->getName());
     }
-    for (auto i = 0; i < numPosts; i++) {
+    for (unsigned int i = 0; i < numPosts; i++) {
         initPost(user, userPath, i);
     }
 
@@ -77,7 +83,7 @@ void Server::initUser(User *user, const std::filesystem::path &userPath) {
     if (numFollowing > MAX_FOLLOWING) {
         throw TooManyFollowingsException(user->getName());
     }
-    for (auto i = 0; i < numFollowing; i++) {
+    for (unsigned int i = 0; i < numFollowing; i++) {
         std::getline(fin, line);
         auto user2 = getUser(line);
         user->addFollowing(user2);
@@ -88,7 +94,7 @@ void Server::initUser(User *user, const std::filesystem::path &userPath) {
     if (numFollowers > MAX_FOLLOWERS) {
         throw TooManyFollowersException(user->getName());
     }
-    for (auto i = 0; i < numFollowers; i++) {
+    for (unsigned int i = 0; i < numFollowers; i++) {
         std::getline(fin, line);
         auto user2 = getUser(line);
         user->addFollower(user2);
@@ -140,7 +146,7 @@ void Server::initPost(User *user, const std::filesystem::path &userPath, std::si
     if (numLikes > MAX_LIKES) {
         throw TooManyLikesException(post->getTitle());
     }
-    for (auto i = 0; i < numLikes; i++) {
+    for (unsigned int i = 0; i < numLikes; i++) {
         std::getline(fin, userName);
         auto user2 = getUser(userName);
         post->addLike(user2, postId);
@@ -151,7 +157,7 @@ void Server::initPost(User *user, const std::filesystem::path &userPath, std::si
     if (numComments > MAX_COMMENTS) {
         throw TooManyCommentsException(post->getTitle());
     }
-    for (auto i = 0; i < numComments; i++) {
+    for (unsigned int i = 0; i < numComments; i++) {
         std::getline(fin, userName);
         auto user2 = getUser(userName);
         std::getline(fin, line);
@@ -371,7 +377,7 @@ void Server::opTrending(std::size_t n) {
         if (a->getScore() != b->getScore()) return a->getScore() > b->getScore();
         return a->getContent() < b->getContent();
     });
-    for (auto i = 0; i < std::min(n, orderedTags.size()); i++) {
+    for (unsigned int i = 0; i < std::min(n, orderedTags.size()); i++) {
         if (orderedTags[i]->getScore() == 0) break;
         std::cout << i + 1 << " " << *orderedTags[i] << std::endl;
     }
@@ -485,6 +491,8 @@ void User::visit(User *user) {
         } else {
             std::cout << "stranger" << std::endl;
         }
+    } else {
+        std::cout << std::endl;
     }
     std::cout << "Followers: " << user->mapFollowersId.size() << std::endl;
     std::cout << "Following: " << user->mapFollowingId.size() << std::endl;
