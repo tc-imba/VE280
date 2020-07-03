@@ -12,7 +12,7 @@ def filter_empty_lines(arr):
     return list(filter(lambda x: len(x) > 0, arr))
 
 
-def print_diff(diff, max_lines=10):
+def print_diff(diff, max_lines=20):
     for i in range(min(max_lines, len(diff))):
         print(diff[i])
 

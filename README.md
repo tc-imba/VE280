@@ -25,7 +25,7 @@ The whole repository is organized as a CMake Project.
 
 ### Project 4
 
-+ [BlackJack](projects/p4/blackjack) SU2016, SU2017, SU2018, FA2019
++ [BlackJack](projects/p4/blackjack) SU2016, SU2017, SU2018, FA2019, SU2020 (p3)
 + [Quarto](projects/p4/quarto) SU2019
 
 ### Project 5
