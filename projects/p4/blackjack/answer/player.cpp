@@ -89,7 +89,7 @@ public:
         {
             count--;
         }
-        else if (c.spot >= 2 || c.spot <= 6)
+        else if (c.spot >= TWO && c.spot <= SIX)
         {
             count++;
         }
