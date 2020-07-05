@@ -4,28 +4,21 @@
 
 #include "hand.h"
 
-Hand::Hand()
-{
+Hand::Hand() {
     this->discardAll();
 }
 
-void Hand::discardAll()
-{
+void Hand::discardAll() {
     this->curValue.count = 0;
     this->curValue.soft = false;
 }
 
-void Hand::addCard(Card c)
-{
-    switch (c.spot)
-    {
+void Hand::addCard(Card c) {
+    switch (c.spot) {
         case ACE:
-            if (this->curValue.soft || this->curValue.count >= 21)
-            {
+            if (this->curValue.soft || this->curValue.count >= 21) {
                 this->curValue.count++;
-            }
-            else
-            {
+            } else {
                 this->curValue.count += 11;
                 this->curValue.soft = true;
             }
@@ -39,14 +32,12 @@ void Hand::addCard(Card c)
             this->curValue.count += (c.spot + 2);
             break;
     }
-    if (this->curValue.soft && this->curValue.count > 21)
-    {
+    if (this->curValue.soft && this->curValue.count > 21) {
         this->curValue.count -= 10;
         this->curValue.soft = false;
     }
 }
 
-HandValue Hand::handValue() const
-{
+HandValue Hand::handValue() const {
     return this->curValue;
 }
