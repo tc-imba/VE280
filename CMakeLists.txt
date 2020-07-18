@@ -16,6 +16,7 @@ add_subdirectory(projects/p3/hard-world)
 
 add_subdirectory(projects/p4/blackjack)
 add_subdirectory(projects/p4/quarto)
+add_subdirectory(projects/p4/huffman)
 
 add_subdirectory(projects/p5/containers)
 
