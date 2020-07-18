@@ -75,5 +75,6 @@ int main(int argc, char *argv[]) {
         cout << coding[ch] << " ";
     }
     cout << endl;
+    fin.close();
     return 0;
 }

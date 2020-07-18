@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <unordered_map>
+#include <cassert>
 
 using namespace std;
 
@@ -17,6 +18,7 @@ char decode(const string &code, const Node *node, unordered_map<string, char> &d
     for (char c : code) {
         if (c == '0') temp = temp->leftSubtree();
         else temp = temp->rightSubtree();
+        assert(temp != nullptr);
     }
     char result = temp->getstr().front();
     dict.emplace_hint(it, code, result);
@@ -37,5 +39,6 @@ int main(int argc, char *argv[]) {
     while (fin >> code) {
         cout << decode(code, huffmanTree.root, dict);
     }
+    fin.close();
     return 0;
 }
