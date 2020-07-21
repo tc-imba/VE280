@@ -69,6 +69,8 @@ int main(int argc, char *argv[]) {
         }
     }
 
+//    ofstream fout("binary.txt");
+//    cout.rdbuf(fout.rdbuf());
     fin.clear();
     fin.seekg(0);
     while (fin.get(ch)) {

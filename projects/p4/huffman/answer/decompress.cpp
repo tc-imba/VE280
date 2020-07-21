@@ -36,6 +36,9 @@ int main(int argc, char *argv[]) {
 
     unordered_map<string, char> dict;
 
+//    ofstream fout("result.txt");
+//    cout.rdbuf(fout.rdbuf());
+
     while (fin >> code) {
         cout << decode(code, huffmanTree.root, dict);
     }
