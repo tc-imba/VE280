@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
         filename = argv[2];
     }
     ifstream fin(filename);
-    int count[256] = {0};
+    int count[128] = {0};
     char ch;
     while (fin.get(ch)) {
         count[ch]++;

@@ -19,4 +19,5 @@ add_subdirectory(projects/p4/quarto)
 add_subdirectory(projects/p4/huffman)
 
 add_subdirectory(projects/p5/containers)
+add_subdirectory(projects/p5/new)
 
