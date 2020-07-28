@@ -95,6 +95,11 @@ int main() {
     cout << endl;
 
     stack<int> rpnStack;
+    if (rpn.empty()) {
+        cout << "ERROR: Not enough operands" << endl;
+        return 0;
+    }
+
     for (auto &item : rpn) {
         if (item.type == Token::INT) {
             rpnStack.push(item.value.number);
