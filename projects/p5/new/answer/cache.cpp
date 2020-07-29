@@ -4,21 +4,26 @@
 
 #include <iostream>
 #include <sstream>
-#include <cassert>
+#include <cstring>
 
-#include <vector>
-#include <list>
-#include <unordered_map>
+#include "dlist.h"
 
 using namespace std;
+
+struct CacheBlock {
+    size_t index;
+    int value;
+};
 
 int main() {
     size_t cacheSize, memorySize;
     cin >> cacheSize >> memorySize >> ws;
 
-    vector<int> memory(memorySize);
-    list<pair<size_t, int>> cache;
-    unordered_map<size_t, list<pair<size_t, int>>::iterator> hashtable;
+    auto memory = new int[memorySize];
+    memset(memory, 0, memorySize * sizeof(int));
+
+    Dlist<CacheBlock> cache;
+    size_t cacheUsed = 0;
 
     string line;
     istringstream iss;
@@ -49,23 +54,22 @@ int main() {
                 cout << "ERROR: Too many operands" << endl;
                 continue;
             }
-            auto it = hashtable.find(index);
-            if (it != hashtable.end()) {
-                if (read) value = it->second->second;
-                cache.erase(it->second);
-                cache.emplace_front(index, value);
-                it->second = cache.begin();
+            auto block = new CacheBlock{index, value};
+            auto victim = cache.remove([](const CacheBlock *a, const CacheBlock *b) { return a->index == b->index; },
+                                       block);
+            if (victim) {
+                if (read) block->value = victim->value;
+                cache.insertFront(block);
+                delete victim;
             } else {
-                if (read) value = memory[index];
-                cache.emplace_front(index, value);
-                hashtable.emplace_hint(it, index, cache.begin());
-                if (cache.size() > cacheSize) {
-                    it = hashtable.find(cache.back().first);
-                    if (it != hashtable.end()) {
-                        hashtable.erase(it);
-                    }
-                    memory[cache.back().first] = cache.back().second;
-                    cache.pop_back();
+                if (read) block->value = memory[index];
+                cache.insertFront(block);
+                cacheUsed++;
+                if (cacheUsed > cacheSize) {
+                    victim = cache.removeBack();
+                    cacheUsed--;
+                    memory[victim->index] = victim->value;
+                    delete victim;
                 }
             }
             if (read) {
@@ -76,16 +80,19 @@ int main() {
                 cout << "ERROR: Too many operands" << endl;
                 continue;
             }
-            for (auto &item : cache) {
-                cout << item.first << " " << item.second << endl;
+            auto temp = cache;
+            while (!temp.isEmpty()) {
+                auto block = temp.removeFront();
+                cout << block->index << " " << block->value << endl;
+                delete block;
             }
         } else if (instruction == "PRINTMEM") {
             if (!iss.eof()) {
                 cout << "ERROR: Too many operands" << endl;
                 continue;
             }
-            for (auto &item : memory) {
-                cout << item << " ";
+            for (int i = 0; i < memorySize; i++) {
+                cout << memory[i] << " ";
             }
             cout << endl;
         } else if (instruction == "EXIT") {

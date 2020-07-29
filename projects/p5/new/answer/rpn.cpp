@@ -6,9 +6,11 @@
 #include <sstream>
 #include <cassert>
 
-#include <vector>
-#include <stack>
-#include <unordered_map>
+#include "dlist.h"
+
+//#include <vector>
+//#include <stack>
+//#include <unordered_map>
 
 using namespace std;
 
@@ -24,20 +26,20 @@ struct Token {
 };
 
 int main() {
-    const unordered_map<char, int> precedence = {
-            {'(', 10},
-            {')', 0},
-            {'*', 3},
-            {'/', 3},
-            {'+', 2},
-            {'-', 2},
-    };
+    int precedence[128] = {};
+    precedence['('] = 10;
+    precedence[')'] = 1;
+    precedence['*'] = 3;
+    precedence['/'] = 3;
+    precedence['+'] = 2;
+    precedence['-'] = 2;
+
 
     string line;
     getline(cin, line);
 
-    vector<Token> rpn;
-    stack<pair<char, int>> operators;
+    Dlist<Token> rpn;
+    Dlist<char> operators;
 
     istringstream iss(line);
     string token;
@@ -45,99 +47,134 @@ int main() {
         char *end;
         auto number = strtol(token.c_str(), &end, 10);
         if (end == token.c_str() + token.length()) {
-            rpn.push_back(Token{number, Token::INT});
+            rpn.insertBack(new Token{number, Token::INT});
             continue;
         }
         if (token.length() == 1) {
             char op = token[0];
-            auto it = precedence.find(op);
-            if (it != precedence.end()) {
-                if (it->first == '(') {
-                    operators.push(*it);
-                } else if (it->first == ')') {
-                    while (!operators.empty() && operators.top().first != '(') {
-                        rpn.push_back(Token{operators.top().first, Token::CHAR});
-                        operators.pop();
+            if (precedence[op] > 0) {
+                if (op == '(') {
+                    operators.insertBack(new char(op));
+                } else if (op == ')') {
+                    while (true) {
+                        if (operators.isEmpty()) {
+                            cout << "ERROR: Parenthesis mismatch" << endl;
+                            return 0;
+                        }
+                        auto op2 = operators.removeBack();
+                        if (*op2 != '(') {
+                            rpn.insertBack(new Token{*op2, Token::CHAR});
+                            delete op2;
+                        } else {
+                            delete op2;
+                            break;
+                        }
                     }
-                    if (operators.empty()) {
-                        cout << "ERROR: Parenthesis mismatch" << endl;
-                        return 0;
-                    }
-                    operators.pop();
+//                    while (!operators.isEmpty() && operators.top().first != '(') {
+//                        rpn.push_back(Token{operators.top().first, Token::CHAR});
+//                        operators.pop();
+//                    }
+//                    if (operators.empty()) {
+//                        cout << "ERROR: Parenthesis mismatch" << endl;
+//                        return 0;
+//                    }
+//                    operators.pop();
                 } else {
-                    while (!operators.empty() && operators.top().first != '(' && operators.top().second >= it->second) {
-                        rpn.push_back(Token{operators.top().first, Token::CHAR});
-                        operators.pop();
+                    while (!operators.isEmpty()) {
+                        auto op2 = operators.removeBack();
+                        if (*op2 == '(' || precedence[*op2] < precedence[op]) {
+                            operators.insertBack(op2);
+                            break;
+                        }
+                        rpn.insertBack(new Token{*op2, Token::CHAR});
+                        delete op2;
                     }
-                    operators.push(*it);
+                    operators.insertBack(new char(op));
+//                    while (!operators.empty() && operators.top().first != '(' && operators.top().second >= it->second) {
+//                        rpn.push_back(Token{operators.top().first, Token::CHAR});
+//                        operators.pop();
+//                    }
+//                    operators.push(*it);
                 }
                 continue;
             }
         }
         assert(0);
     }
-    while (!operators.empty()) {
-        if (operators.top().first == '(') {
+    while (!operators.isEmpty()) {
+        auto op2 = operators.removeBack();
+        if (*op2 == '(') {
             cout << "ERROR: Parenthesis mismatch" << endl;
+            delete op2;
             return 0;
         }
-        rpn.push_back(Token{operators.top().first, Token::CHAR});
-        operators.pop();
+        rpn.insertBack(new Token{*op2, Token::CHAR});
+        delete op2;
     }
-
-    for (auto &item : rpn) {
-        if (item.type == Token::INT) {
-            cout << item.value.number << " ";
+    
+    auto temp = rpn;
+    while (!temp.isEmpty()) {
+        auto item = temp.removeFront();
+        if (item->type == Token::INT) {
+            cout << item->value.number << " ";
         } else {
-            cout << item.value.op << " ";
+            cout << item->value.op << " ";
         }
+        delete item;
     }
     cout << endl;
 
-    stack<int> rpnStack;
-    if (rpn.empty()) {
+    Dlist<int> rpnStack;
+    if (rpn.isEmpty()) {
         cout << "ERROR: Not enough operands" << endl;
         return 0;
     }
 
-    for (auto &item : rpn) {
-        if (item.type == Token::INT) {
-            rpnStack.push(item.value.number);
+    while (!rpn.isEmpty()) {
+        auto item = rpn.removeFront();
+        if (item->type == Token::INT) {
+            rpnStack.insertBack(new int(item->value.number));
         } else {
-            if (rpnStack.size() < 2) {
+            int *b = rpnStack.removeBack();
+            if (rpnStack.isEmpty()) {
                 cout << "ERROR: Not enough operands" << endl;
+                delete b;
                 return 0;
             }
-            int operand = rpnStack.top();
-            rpnStack.pop();
-            if (item.value.op == '/' && operand == 0) {
+            int *a = rpnStack.removeBack();
+            if (item->value.op == '/' && *b == 0) {
                 cout << "ERROR: Divide by zero" << endl;
+                delete a;
+                delete b;
                 return 0;
             }
-            switch (item.value.op) {
+            switch (item->value.op) {
                 case '+':
-                    rpnStack.top() += operand;
+                    *a += *b;
                     break;
                 case '-':
-                    rpnStack.top() -= operand;
+                    *a -= *b;
                     break;
                 case '*':
-                    rpnStack.top() *= operand;
+                    *a *= *b;
                     break;
                 case '/':
-                    rpnStack.top() /= operand;
+                    *a /= *b;
                     break;
                 default:
                     assert(0);
             }
+            delete b;
+            rpnStack.insertBack(a);
         }
     }
 
-    if (rpnStack.size() != 1) {
+    auto result = rpnStack.removeFront();
+    if (!rpnStack.isEmpty()) {
         cout << "ERROR: Too many operands" << endl;
     } else {
-        cout << rpnStack.top() << endl;
+        cout << *result << endl;
     }
-
+    delete result;
     return 0;
 }
