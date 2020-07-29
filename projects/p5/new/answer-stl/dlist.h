@@ -1,15 +1,29 @@
 #ifndef __DLIST_H__
 #define __DLIST_H__
 
+#include <memory>
+
 class emptyList {
     // OVERVIEW: an exception class
 };
 
-template <class T>
+template<class T>
 class Dlist {
     // OVERVIEW: contains a double-ended list of Objects
 
-   public:
+private:
+    // A private type
+    struct node {
+        std::unique_ptr<node> next;    // every node is owned by the previous node
+        node *prev;
+        std::unique_ptr<T> op;
+    };
+
+    node *first;  // The pointer to the first node (NULL if none)
+    node *last;   // The pointer to the last node (NULL if none)
+
+
+public:
     // Operational methods
 
     bool isEmpty() const;
@@ -33,7 +47,7 @@ class Dlist {
     // EFFECTS removes and returns last object from non-empty list
     //         throws an instance of emptyList if empty
 
-    T *remove(bool (*cmp)(const T*, const T*), T* ref);
+    T *remove(bool (*cmp)(const T *, const T *), T *ref);
     // MODIFIES this
     // REQUIRES there is only one or zero node in the list satisfying cmp(op, ref) == true
     // EFFECTS traverses through the whole list
@@ -47,18 +61,11 @@ class Dlist {
     Dlist &operator=(const Dlist &l);  // assignment operator
     ~Dlist();                          // destructor
 
-   private:
-    // A private type
-    struct node {
-        node *next;
-        node *prev;
-        T *op;
-    };
-
-    node *first;  // The pointer to the first node (NULL if none)
-    node *last;   // The pointer to the last node (NULL if none)
-
+private:
     // Utility methods
+    void insert(T *op, bool front);
+
+    T *remove(std::unique_ptr<node> victim);
 
     void removeAll();
     // EFFECT: called by destructor/operator= to remove and destroy

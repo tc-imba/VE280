@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <list>
 #include <vector>
 #include <random>
@@ -8,6 +9,23 @@
 
 using namespace std;
 const int SIZE = 1000;
+
+void compare_lists(list<int> &stlList, Dlist<int> dlist) {
+    ostringstream oss1, oss2;
+    for (auto num : stlList) {
+        oss1 << num << " ";
+    }
+    while (!dlist.isEmpty()) {
+        auto num = dlist.removeFront();
+        oss2 << *num << " ";
+    }
+    if (oss1.str() != oss2.str()) {
+        cout << "error: " << endl;
+        cout << "  stl: " << oss1.str() << endl;
+        cout << "dlist: " << oss2.str() << endl;
+        exit(-1);
+    }
+}
 
 int main(int argc, char *argv[]) {
 
@@ -48,10 +66,17 @@ int main(int argc, char *argv[]) {
                     stlList.pop_back();
                     num2 = dlist.removeBack();
                 }
-                assert(num1 == *num2);
+                if (*num2 != num1) {
+                    compare_lists(stlList, dlist);
+                    cout << "error: remove wrong number " << *num2 << ", should be " << num1 << endl;
+                    exit(-1);
+                }
                 delete num2;
             }
         } else if (a == 5) {
+            if (i == 29) {
+                cout << endl;
+            }
             // remove
             if (!stlList.empty()) {
                 uniform_int_distribution<> dis2(0, count - 1);
@@ -63,20 +88,26 @@ int main(int argc, char *argv[]) {
                 auto num2 = dlist.remove([](const int *a, const int *b) { return *a == *b; }, num1);
                 delete num1;
                 if (stlList.size() == size) {
-                    assert(num2 == nullptr);
+                    if (num2 != nullptr) {
+                        compare_lists(stlList, dlist);
+                        cout << "error: remove wrong number " << *num2 << ", should be nothing" << endl;
+                        exit(-1);
+                    }
                 } else {
-                    assert(*num2 == remove);
+                    if (*num2 != remove) {
+                        compare_lists(stlList, dlist);
+                        cout << "error: remove wrong number " << *num2 << ", should be " << remove << endl;
+                        exit(-1);
+                    }
                     delete num2;
                 }
             }
         } else if (a == 6) {
             cout << i << " copy " << endl;
-            if (i == 37) {
-                cout << endl;
-            }
             Dlist<int> dlist2(dlist);
             dlist = dlist2;
         }
+        compare_lists(stlList, dlist);
     }
     return 0;
 }

@@ -1,5 +1,5 @@
 //
-// Created by liu on 16-7-19.
+// Created by liu on 27/7/2020.
 //
 
 #ifndef VE280_DLIST_IMPL_H
@@ -13,29 +13,44 @@ bool Dlist<T>::isEmpty() const {
 }
 
 template<class T>
-void Dlist<T>::insertFront(T *op) {
-    auto newNode = new node;
-    newNode->op = op;
+void Dlist<T>::insert(T *op, bool front) {
+    auto newNode = std::make_unique<node>();
+    newNode->op = std::unique_ptr<T>(op);
     if (isEmpty()) {
-        first = last = newNode->prev = newNode->next = newNode;
+        first = last = newNode->prev = newNode.get();
+        newNode->next = std::move(newNode);
     } else {
+        first->prev = newNode.get();
         newNode->prev = last;
-        newNode->next = first;
-        first = first->prev = last->next = newNode;
+        newNode->next = std::move(last->next);
+        last->next = std::move(newNode);
+        if (front) {
+            first = first->prev;
+        } else {
+            last = last->next.get();
+        }
     }
 }
 
 template<class T>
+void Dlist<T>::insertFront(T *op) {
+    insert(op, true);
+}
+
+template<class T>
 void Dlist<T>::insertBack(T *op) {
-    auto newNode = new node;
-    newNode->op = op;
-    if (isEmpty()) {
-        first = last = newNode->prev = newNode->next = newNode;
+    insert(op, false);
+}
+
+template<class T>
+T *Dlist<T>::remove(std::unique_ptr<node> victim) {
+    if (first->prev == first) {
+        first = last = nullptr;
     } else {
-        newNode->prev = last;
-        newNode->next = first;
-        last = first->prev = last->next = newNode;
+        victim->next->prev = victim->prev;
+        victim->prev->next = std::move(victim->next);
     }
+    return victim->op.release();
 }
 
 template<class T>
@@ -43,15 +58,9 @@ T *Dlist<T>::removeFront() {
     if (isEmpty()) {
         throw emptyList();
     }
-    auto victim = first;
-    auto op = victim->op;
-    if (victim == victim->next) {
-        first = last = nullptr;
-    } else {
-        first = victim->prev->next = victim->next;
-        victim->next->prev = victim->prev;
-    }
-    delete victim;
+    auto newFirst = first->next.get();
+    auto op = remove(std::move(last->next));
+    if (first) first = newFirst;
     return op;
 }
 
@@ -60,37 +69,25 @@ T *Dlist<T>::removeBack() {
     if (isEmpty()) {
         throw emptyList();
     }
-    auto victim = last;
-    auto op = victim->op;
-    if (victim == victim->next) {
-        first = last = nullptr;
-    } else {
-        victim->prev->next = victim->next;
-        last = victim->next->prev = victim->prev;
-    }
-    delete victim;
-    return op;
+    last = last->prev;
+    return remove(std::move(last->next));
 }
 
 template<class T>
-T * Dlist<T>::remove(bool (*cmp)(const T *, const T *), T *ref) {
+T *Dlist<T>::remove(bool (*cmp)(const T *, const T *), T *ref) {
     if (isEmpty()) {
         return nullptr;
     }
-    if (cmp(first->op, ref)) {
+    if (cmp(first->op.get(), ref)) {
         return removeFront();
     }
-    if (cmp(last->op, ref)) {
+    if (cmp(last->op.get(), ref)) {
         return removeBack();
     }
     auto temp = last->prev;
     while (temp != first) {
-        if (cmp(temp->op, ref)) {
-            auto op = temp->op;
-            temp->prev->next = temp->next;
-            temp->next->prev = temp->prev;
-            delete temp;
-            return op;
+        if (cmp(temp->op.get(), ref)) {
+            return remove(std::move(temp->prev->next));
         }
         temp = temp->prev;
     }
@@ -123,14 +120,13 @@ Dlist<T>::~Dlist() {
 template<class T>
 void Dlist<T>::removeAll() {
     if (!isEmpty()) {
-        auto temp = first;
-        while (temp != last) {
-            temp = temp->next;
-            delete temp->prev->op;
-            delete temp->prev;
+        // reset the owner of the first node
+        auto temp = std::move(last->next);
+        // clear nodes reversely one by one to prevent stack overflow
+        while (first->next) {
+            last = last->prev;
+            last->next = nullptr;
         }
-        delete temp->op;
-        delete temp;
     }
     first = last = nullptr;
 }
