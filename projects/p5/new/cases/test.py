@@ -52,8 +52,8 @@ def run_test_case(program, name):
             return True
 
 
-rpn_executable = os.path.join(program_dir, 'p5-new-rpn.exe')
-cache_executable = os.path.join(program_dir, 'p5-new-cache.exe')
+rpn_executable = os.path.join(program_dir, 'rpn')
+cache_executable = os.path.join(program_dir, 'cache')
 
 for f in os.listdir('.'):
     if not f.endswith('.in'):

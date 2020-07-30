@@ -90,7 +90,7 @@ def generate_cache(index, cache_size, memory_size, operations):
             elif a == 9:
                 f.write('%s ' % random_string())
             if b == 0:
-                if random.randint(0, 1):
+                if random.randint(0, 1) and 7 <= a <= 9:
                     f.write('%s ' % random_string())
                 else:
                     f.write('%d ' % random.randint(0, 10000))

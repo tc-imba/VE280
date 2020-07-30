@@ -73,7 +73,7 @@ int main() {
                 }
             }
             if (read) {
-                cout << value << endl;
+                cout << block->value << endl;
             }
         } else if (instruction == "PRINTCACHE") {
             if (!iss.eof()) {
