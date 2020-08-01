@@ -18,6 +18,6 @@ add_subdirectory(projects/p4/blackjack)
 add_subdirectory(projects/p4/quarto)
 add_subdirectory(projects/p4/huffman)
 
-add_subdirectory(projects/p5/containers)
-add_subdirectory(projects/p5/new)
+add_subdirectory(projects/p5/list-v1)
+add_subdirectory(projects/p5/list-v2)
 

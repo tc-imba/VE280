@@ -22,16 +22,18 @@ The whole repository is organized as a CMake Project.
 
 + [Simple World](projects/p3/simple-world) SU2016, SU2019, FA2019
 + [Simple World (hard)](projects/p3/hard-world) SU2017, SU2018
++ [BlackJack](projects/p4/blackjack) SU2020
 
 ### Project 4
 
-+ [BlackJack](projects/p4/blackjack) SU2016, SU2017, SU2018, FA2019, SU2020 (p3)
++ [BlackJack](projects/p4/blackjack) SU2016, SU2017, SU2018, FA2019
 + [Quarto](projects/p4/quarto) SU2019
 + [Huffman](projects/p4/huffman) SU2020
 
 ### Project 5
 
-+ [List, Stack and Queue](projects/p5/containers) SU2016, SU2017, SU2018, SU2019, FA2019
++ [List, RPN and Call](projects/p5/list-v1) SU2016, SU2017, SU2018, SU2019, FA2019
++ [List, RPN and Cache](projects/p5/list-v2) SU2020
 
 ## Usage
 
