@@ -139,6 +139,7 @@ int main() {
             if (rpnStack.isEmpty()) {
                 cout << "ERROR: Not enough operands" << endl;
                 delete b;
+                delete item;
                 return 0;
             }
             int *a = rpnStack.removeBack();
@@ -146,6 +147,7 @@ int main() {
                 cout << "ERROR: Divide by zero" << endl;
                 delete a;
                 delete b;
+                delete item;
                 return 0;
             }
             switch (item->value.op) {
@@ -167,6 +169,7 @@ int main() {
             delete b;
             rpnStack.insertBack(a);
         }
+        delete item;
     }
 
     auto result = rpnStack.removeFront();
